@@ -17,6 +17,7 @@ public class MainWindow extends JFrame {
 	
 	private ApplicationMenu appMenu = new ApplicationMenu();
 	private MainContent content = new MainContent();
+	private ListOfCustomers listOfCustomer = new ListOfCustomers();
 	
 
 	public MainWindow() {
@@ -31,6 +32,7 @@ public class MainWindow extends JFrame {
 
 		// add content
 		add(content);
+		add(listOfCustomers);
 
 		setResizable(false);
 		setVisible(true);

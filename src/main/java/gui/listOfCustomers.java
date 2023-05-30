@@ -1,5 +1,7 @@
 package gui;
 
-public class ListOfCustomers {
+import javax.swing.JFrame;
+
+public class ListOfCustomers extends JFrame {
 
 }
