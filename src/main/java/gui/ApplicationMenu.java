@@ -135,7 +135,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		}else if (arg.equals("Exit")) {
 			System.exit(0);		
 		}else if (arg.equals("About")) {
-			JTextArea helptext = new JTextArea("This is the small application example\n\n- it provides the display of basic functionality\n- You are allowed to use its structure\n- and upgrade it for a higher grade");
+			JTextArea helptext = new JTextArea("This is the small application example\n\n- It provides the display of basic functionality\n- You are allowed to use its structure\n- You can upgrade it for a higher grade");
 			helptext.setEditable(false);
 			helptext.setOpaque(false);
 			helptext.setFont(bigFont);
