@@ -5,6 +5,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import database.DatabaseHelper;
 
@@ -44,11 +45,14 @@ public class MainContent extends JPanel {
         
         ReportsAndUpdates reportsAndUpdates = new ReportsAndUpdates ();
         reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("Reports and updates")); // Add a titled border
+        
+       
 
+     
         // Specify the constraints for the FileAccessSettings
         c.fill = GridBagConstraints.BOTH; // This component should fill its display area
         c.weightx = 0.8; // Specify the relative width of the FileAccessSettings
-        c.weighty = 0.5; // Request any extra vertical space
+        c.weighty = 0; // Request any extra vertical space
         c.gridx = 2; // Place FileAccessSettings in the second column
         
         
