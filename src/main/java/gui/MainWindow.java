@@ -11,7 +11,11 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
+
 public class MainWindow extends JFrame {
+	
+	private ApplicationMenu appMenu = new ApplicationMenu();
+	
 
 	
 
@@ -24,7 +28,7 @@ public class MainWindow extends JFrame {
 		setLayout(new GridLayout());
 		
 		// add main menu
-
+		setJMenuBar(appMenu);
 
 		// add content
 

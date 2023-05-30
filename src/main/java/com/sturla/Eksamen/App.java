@@ -9,7 +9,6 @@ import javax.swing.SwingUtilities;
 import gui.MainWindow;
 
 
-
 /**
  * This is the demo application for the OBJ2100 course!
  *
