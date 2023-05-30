@@ -56,7 +56,7 @@ public class DatabaseHelper implements DatabaseInterface {
             //STEP 5: Extract data from result set
             while(rs.next()){
                 //Display values
-            	System.out.println(rs.getString("last_name") + ", " + rs.getString("first_name"));
+            	System.out.println(rs.getString("lastName") + ", " + rs.getString("firstName"));
             }
             //STEP 6: Clean-up environment
             rs.close();
