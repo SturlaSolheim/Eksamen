@@ -19,7 +19,7 @@ public class ListOfficesFrame extends JFrame {
 
     public ListOfficesFrame() throws SQLException {
         setTitle("List of offices");
-        setSize(500, 250);
+        setSize(800, 250);
         setLocationRelativeTo(null);
         setLayout(new GridLayout());
 
