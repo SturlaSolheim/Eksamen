@@ -61,8 +61,20 @@ public class DatabaseHelper implements DatabaseInterface {
             //STEP 6: Clean-up environment
             rs.close();
         } catch (SQLException ex) {
-        	ex.printStackTrace();
+        	ex.printStackTrace(); 
         }
+    }
+    
+    public ResultSet selectSql(String sql) throws SQLException {
+    	try {
+			ResultSet rs = stmt.executeQuery(sql);
+			return rs;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
     }
 	
 }
