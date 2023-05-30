@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: sturlasolheim
-Build-Jdk: 18.0.2.1
+Built-By: marku
+Build-Jdk: 19
 Created-By: Maven Integration for Eclipse
 
