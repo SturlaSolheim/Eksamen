@@ -21,7 +21,11 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	
 	private JMenu menu_file = null;
 	private JMenuItem dBconnectionItem = null;
+	private JMenuItem selectFileItem = null;
+	private JMenuItem writeCustomersItem = null;
+	private JMenuItem bulkImportItem = null;
 	private JMenuItem exitItem = null;
+	
 	private JMenu menu_help = null;
 	private JMenuItem option_tip = null;
 	
@@ -49,6 +53,8 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		
 		dBconnectionItem = new JMenuItem("Test database connection");
 		dBconnectionItem.addActionListener(this);
+		
+		dBSelectFileItem = new JMenuItem("Select file");
 		
 		exitItem = new JMenuItem("Exit");
 		exitItem.addActionListener(this);
