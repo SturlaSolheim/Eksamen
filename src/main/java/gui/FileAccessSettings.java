@@ -22,7 +22,7 @@ public class FileAccessSettings extends JPanel implements ActionListener {
         // Initialize the file chooser
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle("choosertitle");
+        chooser.setDialogTitle("Choose folder");
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
 
