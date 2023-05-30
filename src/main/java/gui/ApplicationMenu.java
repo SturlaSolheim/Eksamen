@@ -58,7 +58,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 
 		menu_help = new JMenu("Help");
 		
-		option_tip = new JMenuItem("About the application");
+		option_tip = new JMenuItem("About the application:");
 		option_tip.addActionListener(this);
 		menu_help.add(option_tip);
 
