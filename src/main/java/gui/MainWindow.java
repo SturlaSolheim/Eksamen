@@ -21,7 +21,7 @@ public class MainWindow extends JFrame {
 	public MainWindow() {
 		
 		setTitle("Example application");
-		setSize(1030, 1000);
+		setSize(500, 500);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout());
 		
