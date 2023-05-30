@@ -3,9 +3,12 @@ package gui;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import database.DatabaseHelper;
 
 public class PanelMenu extends JPanel implements ActionListener {
 
@@ -16,10 +19,10 @@ public class PanelMenu extends JPanel implements ActionListener {
         setLayout(new GridBagLayout());
 
         // Initialize the buttons
-        button1 = new JButton("Button 1");
-        button2 = new JButton("Button 2");
+        button1 = new JButton("Test database connection");
+        button2 = new JButton("Execute SQL query");
         button3 = new JButton("Button 3");
-        button4 = new JButton("Button 4");
+        button4 = new JButton("About the app");
 
         // Make this class the action listener for the buttons
         button1.addActionListener(this);
@@ -64,7 +67,17 @@ public class PanelMenu extends JPanel implements ActionListener {
         // Handle button clicks here
         // For example:
         if (e.getSource() == button1) {
-            System.out.println("Button 1 was clicked!");
+			try {
+				DatabaseHelper db = new DatabaseHelper();
+				db.open();
+				db.test();
+				db.close();
+				String message = "Connection succesful";
+				JOptionPane.showMessageDialog(this, message);
+			} catch (Exception e2) {
+				String message = "Connection not succesful";
+				JOptionPane.showMessageDialog(this, message);
+			}	
         }
         // And so on for button2, button3, and button4
     }
