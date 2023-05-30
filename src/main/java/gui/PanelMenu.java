@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import database.DatabaseHelper;
+import gui.ListOfficesFrame;
 
 public class PanelMenu extends JPanel implements ActionListener {
 
@@ -78,6 +79,10 @@ public class PanelMenu extends JPanel implements ActionListener {
 				String message = "Connection not succesful";
 				JOptionPane.showMessageDialog(this, message);
 			}	
+        }
+        
+        if(e.getSource() == button3) {
+        	ListOfficesFrame frame = new ListOfficesFrame();
         }
         // And so on for button2, button3, and button4
     }
