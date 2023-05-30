@@ -1,56 +1,43 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.LayoutManager;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-
+import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-public class FileAccessSettings {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-   private static void createWindow() {    
-      JFrame frame = new JFrame("Swing Tester");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      createUI(frame);
-      frame.setSize(560, 200);      
-      frame.setLocationRelativeTo(null);  
-      frame.setVisible(true);
-   }
+public class FileAccessSettings extends JPanel implements ActionListener {
 
-   private static void createUI(final JFrame frame){  
-      JPanel panel = new JPanel();
-      LayoutManager layout = new FlowLayout();  
-      panel.setLayout(layout);       
+    private JButton openButton;
+    private JFileChooser chooser;
 
-      JButton button = new JButton("Click Me!");
-      final JLabel label = new JLabel();
+    public FileAccessSettings() {
+        super();
 
-      button.addActionListener(new ActionListener() {
-         @Override
-         public void actionPerformed(ActionEvent e) {
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            int option = fileChooser.showOpenDialog(frame);
-            if(option == JFileChooser.APPROVE_OPTION){
-               File file = fileChooser.getSelectedFile();
-               label.setText("Folder Selected: " + file.getName());
-            }else{
-               label.setText("Open command canceled");
+        // Initialize the file chooser
+        chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("choosertitle");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        // Initialize and setup the button
+        openButton = new JButton("Open File Chooser");
+        openButton.addActionListener(this); // Set this class as the action listener for the button
+        this.add(openButton); // Add the button to this JPanel
+    }
+
+    // Define the action to perform when the button is clicked
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == openButton) {
+            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+                System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+            } else {
+                System.out.println("No Selection ");
             }
-         }
-      });
-
-      panel.add(button);
-      panel.add(label);
-      frame.getContentPane().add(panel, BorderLayout.CENTER);    
-   }  
+        }
+    }
 }
-
-
