@@ -4,23 +4,34 @@ package gui;
 
 
 	import javax.swing.JButton;
-	import javax.swing.JFrame;
+	import javax.swing.JLabel;
 	import javax.swing.JPanel;
-	import javax.swing.SwingUtilities;
+	import java.awt.Font;
 	import java.awt.GridBagConstraints;
 	import java.awt.GridBagLayout;
+	import java.awt.Insets;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 
 	public class ReportsAndUpdates extends JPanel implements ActionListener {
 		
+		String comment = "Select commands";
+		
 
 	    public ReportsAndUpdates() {
+	    	
+	   
 	        super();
+	        
+	        System.out.println(comment);
+	        
 	        setLayout(new GridBagLayout());
 
-	
 
+	  
+	        
+	        
+	        
 	        JButton addModifyEmployeeButton = new JButton("Add or Modify Employee");
 	        JButton listAllProductsButton = new JButton("List All Products");
 	        JButton listAllOfficesButton = new JButton("List All Offices");
@@ -28,21 +39,24 @@ package gui;
 
 	        GridBagConstraints buttonConstraints = new GridBagConstraints();
 	        buttonConstraints.gridx = 0;
-	        buttonConstraints.gridy = 0;
+	        buttonConstraints.gridy = 0; // Set the grid y position to 1 (bottom row)
+	        buttonConstraints.gridwidth = 1; // Set the grid width to 1
 	        buttonConstraints.fill = GridBagConstraints.HORIZONTAL;
-	        buttonConstraints.ipadx = 10;
-	        buttonConstraints.ipady = 10;
+	        buttonConstraints.weightx = 1.0; // Set the horizontal weight to expand the buttons
+	        buttonConstraints.insets = new Insets(1, 1, 1, 1); // Add spacing around the buttons
+
+	     
 	       
-
+	        buttonConstraints.gridx = 0;
 	        this.add(addModifyEmployeeButton, buttonConstraints);
-
-	        buttonConstraints.gridy = 1;
+	       
+	        buttonConstraints.gridx = 1;
 	        this.add(listAllProductsButton, buttonConstraints);
 
-	        buttonConstraints.gridy = 2;
+	        buttonConstraints.gridx = 2;
 	        this.add(listAllOfficesButton, buttonConstraints);
 
-	        buttonConstraints.gridy = 3;
+	        buttonConstraints.gridx = 3;
 	        this.add(bulkImportOrdersButton, buttonConstraints);
 
 	        addModifyEmployeeButton.addActionListener(this);
