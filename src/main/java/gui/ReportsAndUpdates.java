@@ -1,8 +1,4 @@
 package gui;
-
-
-
-
 	import javax.swing.JButton;
 	import javax.swing.JLabel;
 	import javax.swing.JPanel;
@@ -12,27 +8,17 @@ package gui;
 	import java.awt.Insets;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
-import java.sql.SQLException;
+        import java.sql.SQLException;
 
 	public class ReportsAndUpdates extends JPanel implements ActionListener {
 		
-		String comment = "Select commands";
+	    String comment = "Select commands";
 		
-
-	    public ReportsAndUpdates() {
-	    	
-	   
-	        super();
-	        
+	    public ReportsAndUpdates() {	
+	        super(); 
 	        System.out.println(comment);
-	        
 	        setLayout(new GridBagLayout());
-
-
-	  
-	        
-	        
-	        
+                
 	        JButton addModifyEmployeeButton = new JButton("Add or Modify Employee");
 	        JButton listAllProductsButton = new JButton("List All Products");
 	        JButton listAllOfficesButton = new JButton("List All Offices");
@@ -46,8 +32,6 @@ import java.sql.SQLException;
 	        buttonConstraints.weightx = 1.0; // Set the horizontal weight to expand the buttons
 	        buttonConstraints.insets = new Insets(1, 1, 1, 1); // Add spacing around the buttons
 
-	     
-	       
 	        buttonConstraints.gridx = 0;
 	        this.add(addModifyEmployeeButton, buttonConstraints);
 	       
@@ -63,9 +47,7 @@ import java.sql.SQLException;
 	        addModifyEmployeeButton.addActionListener(this);
 	        listAllProductsButton.addActionListener(this);
 	        listAllOfficesButton.addActionListener(this);
-	        bulkImportOrdersButton.addActionListener(this);
-
-	       
+	        bulkImportOrdersButton.addActionListener(this);       
 	    }
 
 	    // Define the action to perform when a button is clicked
@@ -76,6 +58,11 @@ import java.sql.SQLException;
 	            // Perform action for add/modify employee button
 	        } else if (e.getActionCommand().equals("List All Products")) {
 	            System.out.println("List All Products button clicked");
+                    try {
+			ListAllProducts frame = new ListAllProducts();
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();
+                    }
 	            // Perform action for list all products button
 	        } else if (e.getActionCommand().equals("List All Offices")) {
 	        	try {
@@ -89,7 +76,5 @@ import java.sql.SQLException;
 	            System.out.println("Bulk Import of Orders button clicked");
 	            // Perform action for bulk import orders button
 	        }
-	    }
-
-	    
-	}
+	    }	    
+}
