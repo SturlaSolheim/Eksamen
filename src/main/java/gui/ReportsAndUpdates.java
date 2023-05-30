@@ -64,6 +64,7 @@ package gui;
 	            // Perform action for list all products button
 	        } else if (e.getActionCommand().equals("List All Offices")) {
 	            System.out.println("List All Offices button clicked");
+	        	ListOfficesFrame frame = new ListOfficesFrame();
 	            // Perform action for list all offices button
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
 	            System.out.println("Bulk Import of Orders button clicked");
