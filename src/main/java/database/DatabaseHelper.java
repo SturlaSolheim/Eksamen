@@ -19,7 +19,7 @@ public class DatabaseHelper {
 			
 			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "student" , "student");
 			
-			System.out.println("Database connection successful!\n");
+			System.out.println("Database connection successfull!\n");
 			
 			myStmt = myConn.createStatement();
 			
