@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
+import database.DatabaseHelper;
+
 
 public class ApplicationMenu extends JMenuBar implements ActionListener {
 	
@@ -45,7 +47,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 
 		menu_file = new JMenu("File");
 		
-		dBconnectionItem = new JMenuItem("Test database connection yyyyyyyy");
+		dBconnectionItem = new JMenuItem("Test database connection");
 		dBconnectionItem.addActionListener(this);
 		
 		exitItem = new JMenuItem("Exit");
@@ -70,11 +72,11 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		String arg = event.getActionCommand();
 		if (arg.equals("Test database connection")) {
 			try {
-//				DatabaseHelper db = new DatabaseHelper();
-//				db.open();
-//				db.test();
-//				db.close();
-//				displayMessage("Connection tested succesfully!");
+				DatabaseHelper db = new DatabaseHelper();
+				db.open();
+				db.test();
+				db.close();
+				displayMessage("Connection tested succesfully!");
 			} catch (Exception e) {
 				displayMessage("Error with the connection!");
 			}	
