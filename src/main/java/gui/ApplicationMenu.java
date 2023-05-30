@@ -26,6 +26,13 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	private JMenuItem bulkImportItem = null;
 	private JMenuItem exitItem = null;
 	
+	private JMenu menu_database = null;
+	private JMenuItem testDatabaseItem = null;
+	private JMenuItem executeSqlItem = null;
+	private JMenuItem addOrModifyItem = null;
+	private JMenuItem listAllProductsItem = null;
+	private JMenuItem filterAndPresentItem = null;
+	
 	private JMenu menu_help = null;
 	private JMenuItem option_tip = null;
 	
@@ -52,8 +59,6 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		//Defines file menu
 		menu_file = new JMenu("File");
 		
-		dBconnectionItem = new JMenuItem("Test database connection");
-		dBconnectionItem.addActionListener(this);
 		
 		selectFileItem = new JMenuItem("Select file");
 		selectFileItem.addActionListener(this);
@@ -71,16 +76,45 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		menu_file.add(selectFileItem);
 		menu_file.add(writeCustomersItem);
 		menu_file.add(bulkImportItem);
-		menu_file.add(dBconnectionItem);
 		menu_file.add(exitItem);
-
+		
+		//Define Database menu
+		menu_database = new JMenu("Database");
+		
+		testDatabaseItem = new JMenuItem("Test database connection");
+		testDatabaseItem.addActionListener(this);
+		
+		executeSqlItem = new JMenuItem("Execute SQL query");
+		executeSqlItem.addActionListener(this);
+		
+		addOrModifyItem = new JMenuItem("Add or modify employee");
+		addOrModifyItem.addActionListener(this);
+		
+		listAllProductsItem = new JMenuItem("List all products");
+		listAllProductsItem.addActionListener(this);
+		
+		filterAndPresentItem = new JMenuItem("Filter and present offices from a country");
+		filterAndPresentItem.addActionListener(this);
+		
+		
+		
+		//Add items to database menu
+		menu_database.add(testDatabaseItem);
+		menu_database.add(executeSqlItem);
+		menu_database.add(addOrModifyItem);
+		menu_database.add(listAllProductsItem);
+		menu_database.add(filterAndPresentItem);
+		
+		//Defines Help menu
 		menu_help = new JMenu("Help");
 		
-		option_tip = new JMenuItem("About the application");
+		option_tip = new JMenuItem("About");
 		option_tip.addActionListener(this);
 		menu_help.add(option_tip);
-
+		
+		//Adds the menus
 		this.add(menu_file);
+		this.add(menu_database);
 		this.add(menu_help);
 	}
 	
@@ -100,7 +134,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 			}	
 		}else if (arg.equals("Exit")) {
 			System.exit(0);		
-		}else if (arg.equals("About the application")) {
+		}else if (arg.equals("About")) {
 			JTextArea helptext = new JTextArea("This is the small application example\n\n- it provides the display of basic functionality\n- You are allowed to use its structure\n- and upgrade it for a higher grade");
 			helptext.setEditable(false);
 			helptext.setOpaque(false);
