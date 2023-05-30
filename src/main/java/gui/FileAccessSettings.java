@@ -23,7 +23,7 @@ public class FileAccessSettings extends JPanel implements ActionListener {
         chooser.setAcceptAllFileFilterUsed(false);
 
         // Initialize and setup the button
-        openButton = new JButton("Open File Chooser");
+        openButton = new JButton("Change folder");
         openButton.addActionListener(this); // Set this class as the action listener for the button
         this.add(openButton); // Add the button to this JPanel
     }
