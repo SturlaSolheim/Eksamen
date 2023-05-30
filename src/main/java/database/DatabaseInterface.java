@@ -19,13 +19,8 @@ public interface DatabaseInterface {
 	void test() throws SQLException;
 	
 	// get list of all employees
-	List<Employee> getEmployees() throws SQLException;
+	//List<Employee> getEmployees() throws SQLException;
 	
-	//add employee with name
-	void addEmployee(String firtsName, String LastName) throws SQLException;
-	
-	//add employee with all details
-	void addEmployee(String firtsName, String LastName, String department, String email, double salary) throws SQLException;
 	
 	
 }
