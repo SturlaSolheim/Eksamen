@@ -32,7 +32,7 @@ public class MainWindow extends JFrame {
 
 		// add content
 		add(content);
-		add(listOfCustomers);
+		add(listOfCustomer);
 
 		setResizable(false);
 		setVisible(true);
