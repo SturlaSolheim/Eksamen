@@ -19,12 +19,12 @@ public class ListOfficesFrame extends JFrame {
 
     public ListOfficesFrame() throws SQLException {
         setTitle("List of offices");
-        setSize(1000, 500);
+        setSize(500, 250);
         setLocationRelativeTo(null);
         setLayout(new GridLayout());
 
         // Define the column names for your table
-        String[] columnNames = {"officeCode",  "city", "phone", "adressLine1", "adressLine2", "state", "country", "postalCode", "territory"};
+        String[] columnNames = {"officeCode",  "phone", "city", "adressLine1", "adressLine2", "state", "country", "postalCode", "territory"};
 
         // Initialize the table model
         tableModel = new DefaultTableModel(columnNames, 0); // The '0' argument means the table starts off with zero rows
@@ -39,7 +39,7 @@ public class ListOfficesFrame extends JFrame {
         this.add(scrollPane);
         
         DatabaseHelper db = new DatabaseHelper();
-        
+        db.open();
         ResultSet resultat = db.selectSql("SELECT * FROM offices");
         
         while (resultat.next()) {
@@ -47,19 +47,19 @@ public class ListOfficesFrame extends JFrame {
         	int officeCode = resultat.getInt("officeCode");
         	String city = resultat.getString("city");
         	String phone = resultat.getString("phone");
-        	String adressLine1 = resultat.getString("adressLine1");
-        	String adressLine2 = resultat.getString("adressLine2");
+        	String adressLine1 = resultat.getString("addressLine1");
+        	String adressLine2 = resultat.getString("addressLine2");
         	String state = resultat.getString("state");
         	String country = resultat.getString("country");
         	String postalCode = resultat.getString("postalCode");
         	String territory = resultat.getString("territory");
-	        Office tmp = new Office(officeCode, city, phone, adressLine1, adressLine2, state, country, postalCode, territory);
+	  
 	        
-	        Object[] test = {city, phone, adressLine1, adressLine2, state, country, postalCode, territory };
+	        Object[] test = {officeCode, city, phone, adressLine1, adressLine2, state, country, postalCode, territory };
 	        tableModel.addRow(test);
         }
         
-        
+        db.close();
         setResizable(false);
         setVisible(true);
     
