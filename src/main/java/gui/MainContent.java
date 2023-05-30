@@ -3,6 +3,8 @@ package gui;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import database.DatabaseHelper;
 
@@ -31,6 +33,7 @@ public class MainContent extends JPanel {
 
         // Create an instance of FileAccessSettings
         FileAccessSettings fileAccessSettings = new FileAccessSettings();
+        fileAccessSettings.setBorder(BorderFactory.createTitledBorder("File Access Settings")); // Add a titled border
 
         // Specify the constraints for the FileAccessSettings
         c.fill = GridBagConstraints.BOTH; // This component should fill its display area
