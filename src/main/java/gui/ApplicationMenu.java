@@ -48,17 +48,29 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	protected void displayMenuBar() {
 		UIManager.put("Menu.font", bigFont);
 		UIManager.put("MenuItem.font", smallFont);
-
+		
+		//Defines file menu
 		menu_file = new JMenu("File");
 		
 		dBconnectionItem = new JMenuItem("Test database connection");
 		dBconnectionItem.addActionListener(this);
 		
-		dBSelectFileItem = new JMenuItem("Select file");
+		selectFileItem = new JMenuItem("Select file");
+		selectFileItem.addActionListener(this);
+		
+		writeCustomersItem = new JMenuItem("Write customers into file");
+		writeCustomersItem.addActionListener(this);
+		
+		bulkImportItem = new JMenuItem("Bulk import of orders");
+		bulkImportItem.addActionListener(this);
 		
 		exitItem = new JMenuItem("Exit");
 		exitItem.addActionListener(this);
-		
+
+		//Adds items to file menu
+		menu_file.add(selectFileItem);
+		menu_file.add(writeCustomersItem);
+		menu_file.add(bulkImportItem);
 		menu_file.add(dBconnectionItem);
 		menu_file.add(exitItem);
 
