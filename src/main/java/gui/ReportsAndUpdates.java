@@ -11,6 +11,7 @@ package gui;
 	import java.awt.GridBagLayout;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 	public class ReportsAndUpdates extends JPanel implements ActionListener {
 		
@@ -63,8 +64,12 @@ package gui;
 	            System.out.println("List All Products button clicked");
 	            // Perform action for list all products button
 	        } else if (e.getActionCommand().equals("List All Offices")) {
-	            System.out.println("List All Offices button clicked");
-	        	ListOfficesFrame frame = new ListOfficesFrame();
+	        	try {
+					ListOfficesFrame frame = new ListOfficesFrame();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 	            // Perform action for list all offices button
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
 	            System.out.println("Bulk Import of Orders button clicked");

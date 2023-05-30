@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import database.DatabaseHelper;
 import gui.ListOfficesFrame;
@@ -82,7 +83,12 @@ public class PanelMenu extends JPanel implements ActionListener {
         }
         
         if(e.getSource() == button3) {
-        	ListOfficesFrame frame = new ListOfficesFrame();
+        	try {
+				ListOfficesFrame frame = new ListOfficesFrame();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         }
         // And so on for button2, button3, and button4
     }
