@@ -1,5 +1,5 @@
 package gui;
 
-public class listOfCustomers {
+public class ListOfCustomers {
 
 }
