@@ -45,7 +45,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 
 		menu_file = new JMenu("File");
 		
-		dBconnectionItem = new JMenuItem("Test database connection");
+		dBconnectionItem = new JMenuItem("Test database connection testtttt");
 		dBconnectionItem.addActionListener(this);
 		
 		exitItem = new JMenuItem("Exit");

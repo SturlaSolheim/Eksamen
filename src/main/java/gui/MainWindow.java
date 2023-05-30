@@ -17,9 +17,6 @@ public class MainWindow extends JFrame {
 	private ApplicationMenu appMenu = new ApplicationMenu();
 	
 
-	
-
-
 	public MainWindow() {
 		
 		setTitle("Example application");
