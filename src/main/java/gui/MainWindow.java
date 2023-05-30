@@ -17,7 +17,7 @@ public class MainWindow extends JFrame {
 	
 	private ApplicationMenu appMenu = new ApplicationMenu();
 	private MainContent content = new MainContent();
-	private ListOfCustomers listOfCustomer = new ListOfCustomers();
+	private listOfCustomers listOfCustomer = new listOfCustomers();
 	
 
 	public MainWindow() {
