@@ -16,14 +16,27 @@ public class MainContent extends JPanel {
         super();
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        
+
+        // Create an instance of PanelMenu
+        PanelMenu panelMenu = new PanelMenu();
+
+        // Specify the constraints for the PanelMenu
+        c.fill = GridBagConstraints.VERTICAL; // This component should fill its display area vertically
+        c.weightx = 0.2; // Specify the relative width of the PanelMenu
+        c.weighty = 1.0; // Request any extra vertical space
+        c.gridx = 0; // Place PanelMenu in the first column
+
+        // Add the PanelMenu to the panel with the constraints
+        this.add(panelMenu, c);
+
         // Create an instance of FileAccessSettings
         FileAccessSettings fileAccessSettings = new FileAccessSettings();
 
-        // Specify the constraints for the component
+        // Specify the constraints for the FileAccessSettings
         c.fill = GridBagConstraints.BOTH; // This component should fill its display area
-        c.weightx = 1.0; // Request any extra horizontal space
+        c.weightx = 0.8; // Specify the relative width of the FileAccessSettings
         c.weighty = 1.0; // Request any extra vertical space
+        c.gridx = 1; // Place FileAccessSettings in the second column
 
         // Add the FileAccessSettings to the panel with the constraints
         this.add(fileAccessSettings, c);
