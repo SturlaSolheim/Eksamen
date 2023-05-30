@@ -12,9 +12,11 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 
 
+
 public class MainWindow extends JFrame {
 	
 	private ApplicationMenu appMenu = new ApplicationMenu();
+	private MainContent content = new MainContent();
 	
 
 	public MainWindow() {
@@ -28,6 +30,7 @@ public class MainWindow extends JFrame {
 		setJMenuBar(appMenu);
 
 		// add content
+		add(content);
 
 		setResizable(false);
 		setVisible(true);
