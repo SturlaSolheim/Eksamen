@@ -23,6 +23,7 @@ import database.DatabaseHelper;
 import frames.ListOfficesFrame;
 import frames.TestDatabaseFrame;
 import frames.AboutThisApp;
+import frames.ExecuteSql;
 
 public class PanelMenu extends JPanel implements ActionListener {
 
@@ -81,6 +82,12 @@ public class PanelMenu extends JPanel implements ActionListener {
     	            System.out.println("Exit button clicked");
     	            System.exit(0);
     	     
+    	        }
+    	        
+    	        if (e.getSource() == button2) {
+    	        	
+    	            ExecuteSql executeSql = new ExecuteSql();
+    	            executeSql.setVisible(true);
     	        }
     	        
     	        if (e.getSource() == button4) {
