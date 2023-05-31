@@ -1,9 +1,13 @@
 package gui;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
+
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,12 +31,13 @@ public class PanelMenu extends JPanel implements ActionListener {
     public PanelMenu() {
         super();
         setLayout(new GridBagLayout());
+        setBackground(new Color(240, 240, 240));
 
         // Initialize the buttons
-        button1 = new JButton("Test database connection");
-        button2 = new JButton("Execute SQL query");
-        button3 = new JButton("Exit application");
-        button4 = new JButton("About the app");
+        button1 = createButton("Test database connection");
+        button2 = createButton("Execute SQL query");
+        button3 = createButton("Exit application");
+        button4 = createButton("About the app");
 
         // Make this class the action listener for the buttons
         button1.addActionListener(this);
@@ -40,47 +45,30 @@ public class PanelMenu extends JPanel implements ActionListener {
         button3.addActionListener(this);
         button4.addActionListener(this);
 
-        Font boldFontExit = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
-        button3.setFont(boldFontExit);
-        
-        Font boldFontAbout = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
-        button4.setFont(boldFontAbout);
-        
         // Add the buttons to the panel
         GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.BOTH;  // Center both horizontally and vertically
+        c.insets = new Insets(1, 10, 10, 10);
 
         // Position the first button at (0,0)
         c.gridx = 0;
         c.gridy = 0;
-        this.add(button1, c);
+        add(button1, c);
 
         // Position the second button at (0,1)
-        c.gridx = 0;
         c.gridy = 1;
-        this.add(button2, c);
+        add(button2, c);
 
         // Position the third button at (0,2)
-        c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 4;
-        this.add(button3, c);
+        c.gridy = 2;
+        add(button3, c);
 
-        // Add an invisible component that takes up all the extra space
-        c.weighty = 4;
-        c.gridx = 0;
-        c.gridy = 1;
-        this.add(new JPanel(), c); // Adding a new empty JPanel
-
-        // Position the fourth button at (0,4) - at the bottom of the panel
-        c.weighty = 0; // Reset to default
-        c.gridx = 0;
+        // Position the fourth button at (0,3)
         c.gridy = 3;
-        this.add(button4, c);
+        add(button4, c);
     }
 
-
-    	 @Override
+    @Override
     	    public void actionPerformed(ActionEvent e) {
     	        // Handle button clicks here
     	        // For example:
@@ -101,7 +89,16 @@ public class PanelMenu extends JPanel implements ActionListener {
     	            aboutThisApp.showMessage();
     	        }
     	    }
-    	}
+    	
+    
+
+    private JButton createButton(String text) {
+        JButton button = new JButton(text);
+        button.setFont(new Font("Calibri", Font.PLAIN, 24));
+        button.setPreferredSize(new Dimension(250, 50));
+        return button;
+    }
+} 
     
     
     
