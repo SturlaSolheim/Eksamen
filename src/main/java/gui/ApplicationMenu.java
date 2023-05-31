@@ -87,7 +87,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		executeSqlItem = new JMenuItem("Execute SQL query");
 		executeSqlItem.addActionListener(this);
 		
-		addOrModifyItem = new JMenuItem("Add or modify employee");
+		addOrModifyItem = new JMenuItem("Add employee");
 		addOrModifyItem.addActionListener(this);
 		
 		listAllProductsItem = new JMenuItem("List all products");
@@ -140,7 +140,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 				e.printStackTrace();
 			}
 		}
-		else if (arg.equals("Add or modify employee")) {
+		else if (arg.equals("Add employee")) {
 			AddEmployeeFrame frame = new AddEmployeeFrame();
 		}
 		

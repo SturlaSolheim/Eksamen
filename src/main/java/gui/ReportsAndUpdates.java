@@ -24,7 +24,7 @@ import java.awt.Font;
 	   
 	        setLayout(new GridBagLayout());
                 
-	        JButton addModifyEmployeeButton = new JButton("Add or Modify Employee");
+	        JButton addModifyEmployeeButton = new JButton("Add Employee");
 	        JButton listAllProductsButton = new JButton("List All Products");
 	        JButton listAllOfficesButton = new JButton("List All Offices");
 	        JButton bulkImportOrdersButton = new JButton("Bulk Import of Orders");
@@ -66,7 +66,7 @@ import java.awt.Font;
 	    // Define the action to perform when a button is clicked
 	    @Override
 	    public void actionPerformed(ActionEvent e) {
-	        if (e.getActionCommand().equals("Add or Modify Employee")) {
+	        if (e.getActionCommand().equals("Add Employee")) {
 	            System.out.println("Add or Modify Employee button clicked");
 	           AddEmployeeFrame frame = new AddEmployeeFrame();
 	        } else if (e.getActionCommand().equals("List All Products")) {

@@ -20,7 +20,7 @@ public class AddEmployeeFrame extends JFrame implements ActionListener {
     JComboBox<Integer> officeCodeComboBox;
     
     public AddEmployeeFrame() {
-        super("Add or Modify Employee");
+        super("Add employee");
         setLayout(new GridBagLayout());
 
         GridBagConstraints c = new GridBagConstraints();
