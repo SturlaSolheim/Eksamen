@@ -45,7 +45,7 @@ public class MainContent extends JPanel {
         
         
         ReportsAndUpdates reportsAndUpdates = new ReportsAndUpdates ();
-        reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("Reports and updates")); // Add a titled border
+        reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("Reports and updates")); // Add a titled border 
         
        
 
