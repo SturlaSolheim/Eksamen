@@ -121,13 +121,14 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
 			db.insertEmployee(Integer.parseInt(employeeNumberField.getText()), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
 			db.close();
 			
-            String message = "Connection successful";
+            String message = "Employee registered";
             JOptionPane.showMessageDialog(this, message);
 			
 			setVisible(false); 
 			dispose(); 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+            String message = "Employee not registered";
+            JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
 		}
     }
