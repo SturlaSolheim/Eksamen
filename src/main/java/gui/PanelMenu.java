@@ -54,21 +54,21 @@ public class PanelMenu extends JPanel implements ActionListener {
         this.add(button2, c);
 
         // Position the third button at (0,2)
-        c.weighty = 0.5;
+        c.weighty = 0.25;
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 3;
         this.add(button3, c);
 
         // Add an invisible component that takes up all the extra space
-        c.weighty = 8;
+        c.weighty = 10;
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 1;
         this.add(new JPanel(), c); // Adding a new empty JPanel
 
         // Position the fourth button at (0,4) - at the bottom of the panel
-        c.weighty = 0.0; // Reset to default
+        c.weighty = 0; // Reset to default
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 2;
         this.add(button4, c);
     }
 
