@@ -169,7 +169,12 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         if(e.getSource() == modifyButton) {
             modifyToDatabase();
         }
+        
+        if(e.getSource() == deleteButton) {
+            deleteToDatabase();
+        }
     }
+    
     
     private void modifyToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
@@ -184,11 +189,31 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 			setVisible(false); 
 			dispose(); 
 		} catch (SQLException e) {
-            String message = "Employee not registered";
+            String message = "Employee not modified";
             JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
 		}
     }
+    
+    private void deleteToDatabase() {
+    	DatabaseHelper db = new DatabaseHelper();
+    	try {
+			db.open();
+			db.deleteEmployee((int)employeeNumberComboBox.getSelectedItem());
+			db.close();
+			
+            String message = "Employee is deleted";
+            JOptionPane.showMessageDialog(this, message);
+			
+			setVisible(false); 
+			dispose(); 
+		} catch (SQLException e) {
+            String message = "Employee not deleted";
+            JOptionPane.showMessageDialog(this, message);
+			e.printStackTrace();
+		}
+    }
+    
     
     
     

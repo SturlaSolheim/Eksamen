@@ -123,7 +123,24 @@ public class DatabaseHelper implements DatabaseInterface {
 				e.printStackTrace();
 			}
 	    }
+   	
+   public void deleteEmployee(int employeeNumber) throws SQLException {
+	   	try {
+			String query = "delete from employees where employeeNumber = ?;";
+			 myStmt = conn.prepareStatement(query);
+
+			// 3. Set the parameters
+
+			myStmt.setInt(1, employeeNumber);
+			
+			myStmt.execute();
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
    
-   
+   	
 	
 }
