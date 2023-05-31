@@ -28,10 +28,10 @@ public class listOfCustomers extends JPanel {
         selectionLabel = new JLabel("Select: ");
         selectionLabel.setToolTipText("Choose an option");
 
-        cityRadioButton = new JRadioButton("City");
+        cityRadioButton = new JRadioButton("by City");
         cityRadioButton.setToolTipText("Select by city");
 
-        stateRadioButton = new JRadioButton("State");
+        stateRadioButton = new JRadioButton("by State");
         stateRadioButton.setToolTipText("Select by state");
 
         selectionComboBox = new JComboBox<>();
@@ -46,8 +46,11 @@ public class listOfCustomers extends JPanel {
         buttonGroup.add(stateRadioButton);
 
         JPanel radioPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS)); // Set vertical orientation
         radioPanel.add(cityRadioButton);
         radioPanel.add(stateRadioButton);
+        radioPanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Add padding to the panel
+
 
         JPanel contentPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -65,10 +68,9 @@ public class listOfCustomers extends JPanel {
         gbc.gridwidth = 2;
         contentPanel.add(writeListButton, gbc);
 
-        setLayout(new BorderLayout());
-        add(radioPanel, BorderLayout.NORTH);
-        add(contentPanel, BorderLayout.CENTER);
-
+        add(radioPanel);
+        add(contentPanel);
+        
         cityRadioButton.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {

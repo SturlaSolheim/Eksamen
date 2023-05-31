@@ -113,7 +113,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 
     private JButton createButton(String text) {
         JButton button = new JButton(text);
-        button.setFont(new Font("Calibri", Font.PLAIN, 24));
+        button.setFont(new Font("Calibri", Font.PLAIN, 19));
         button.setPreferredSize(new Dimension(250, 50));
         return button;
     }

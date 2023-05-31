@@ -98,7 +98,7 @@ public class ListAllProducts extends JFrame {
         columnModel.getColumn(4).setCellRenderer(renderer);
         
         renderer = new DefaultTableCellRenderer();
-        renderer.setToolTipText("Vendor of the product");
+        renderer.setToolTipText("Description of the product");
         columnModel.getColumn(5).setCellRenderer(renderer);
         
         renderer = new DefaultTableCellRenderer();
