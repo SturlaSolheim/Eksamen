@@ -70,23 +70,6 @@ public class listOfCustomers extends JPanel {
 
         setVisible(true);
     }
-
-//    private List<String> getCitiesFromDatabase() {
-//        List<String> cities = new ArrayList<>();
-//
-//        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "student", "student")) {
-//            Statement statement = connection.createStatement();
-//            ResultSet resultSet = statement.executeQuery("SELECT DISTINCT city FROM customers");
-//            while (resultSet.next()) {
-//                String city = resultSet.getString("city");
-//                cities.add(city);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return cities;
-//    }
-    
     
     
     private List<String> getCitiesFromDatabase() {
@@ -107,7 +90,7 @@ public class listOfCustomers extends JPanel {
 	            
 	            return cities;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
 			}
         	
@@ -117,17 +100,26 @@ public class listOfCustomers extends JPanel {
     private List<String> getStatesFromDatabase() {
         List<String> states = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "student", "student")) {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT DISTINCT state FROM customers");
+    	DatabaseHelper db = new DatabaseHelper();
+    	
+
+    	ResultSet resultSet;
+		try {
+        	db.open();
+			resultSet = db.selectSql("SELECT DISTINCT state FROM customers");
+			
             while (resultSet.next()) {
-                String state = resultSet.getString("state");
-                states.add(state);
+                String city = resultSet.getString("state");
+                states.add(city);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return states;
+            
+            return states;
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+    	
+    return states;
     }
 
     private void updateSelectionComboBox(List<String> items) {
