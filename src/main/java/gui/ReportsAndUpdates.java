@@ -58,11 +58,11 @@ package gui;
 	            // Perform action for add/modify employee button
 	        } else if (e.getActionCommand().equals("List All Products")) {
 	            System.out.println("List All Products button clicked");
-                    try {
-			ListAllProducts frame = new ListAllProducts();
-                    } catch (SQLException e1) {
-                        e1.printStackTrace();
-                    }
+//                    try {
+//			ListAllProducts frame = new ListAllProducts();
+//                    } catch (SQLException e1) {
+//                        e1.printStackTrace();
+//                    }
 	            // Perform action for list all products button
 	        } else if (e.getActionCommand().equals("List All Offices")) {
 	        	try {
