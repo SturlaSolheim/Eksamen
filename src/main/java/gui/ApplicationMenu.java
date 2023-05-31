@@ -21,6 +21,7 @@ import javax.swing.UIManager;
 import database.DatabaseHelper;
 import frames.AddOrModifyEmployeeFrame;
 import frames.ListAllProducts;
+import frames.TestDatabaseFrame;
 
 
 public class ApplicationMenu extends JMenuBar implements ActionListener {
@@ -121,15 +122,9 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		String arg = event.getActionCommand();
 		if (arg.equals("Test database connection")) {
-			try {
-				DatabaseHelper db = new DatabaseHelper();
-				db.open();
-				db.test();
-				db.close();
-				displayMessage("Connection tested succesfully!");
-			} catch (Exception e) {
-				displayMessage("Error with the connection!");
-			}	
+			 new TestDatabaseFrame();
+    	
+
 		}else if (arg.equals("Exit")) {
 			System.exit(0);		
 		}else if (arg.equals("About")) {
