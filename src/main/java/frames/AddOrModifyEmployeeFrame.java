@@ -5,13 +5,16 @@ package frames;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.*;
+import database.DatabaseHelper;
 
 public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
-    JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField;
-    JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel;
+    JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
+    JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
     JButton submitButton;
+    
     public AddOrModifyEmployeeFrame() {
         super("Add or Modify Employee");
         setLayout(new GridBagLayout());
@@ -51,6 +54,14 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
         extensionField = new JTextField(20);
         c.gridx = 1;
         add(extensionField, c);
+        
+        emailLabel = new JLabel("Email");
+        c.gridx = 0;
+        c.gridy++;
+        add(emailLabel, c);
+        emailField = new JTextField(20);
+        c.gridx = 1;
+        add(emailField, c);
 
         officeCodeLabel = new JLabel("Office Code");
         c.gridx = 0;
@@ -114,6 +125,17 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
         }
     }
     
-
+    private void submitToDatabase() {
+    	DatabaseHelper db = new DatabaseHelper();
+    	try {
+			db.open();
+			db.insertEmployee(Integer.parseInt(employeeNumberField.getText()), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,Integer.parseInt(officeCodeField.getText()), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
+			db.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    	
 
 }

@@ -20,6 +20,7 @@ public class DatabaseHelper implements DatabaseInterface {
     private Statement stmt = null;
     private PreparedStatement prepStmt = null;
     private ResultSet rSet = null;
+    private PreparedStatement myStmt = null;
 	
 
 	
@@ -74,7 +75,31 @@ public class DatabaseHelper implements DatabaseInterface {
 			e.printStackTrace();
 		}
 		return null;
+    }
+    
+   public void insertEmployee(int employeeNumber, String lastName, String firstName, String extension, String email, int officeCode, int reportsTo, String jobTitle) throws SQLException {
+   	try {
+		String query = "insert into employees " + "(employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, jobTitle) " + "values "
+				+ "(?, ?, ?, ?, ?, ?, ?, ?)";
+		 myStmt = conn.prepareStatement(query);
 
+		// 3. Set the parameters
+		myStmt.setInt(1, employeeNumber);
+		myStmt.setString(2, lastName);
+		myStmt.setString(3, firstName);
+		myStmt.setString(4, extension);
+		myStmt.setString(5, email);
+		myStmt.setInt(6, officeCode);
+		myStmt.setInt(7, reportsTo);
+		myStmt.setString(8, jobTitle);
+		
+		myStmt.execute();
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
 	
 }

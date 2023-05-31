@@ -1,5 +1,5 @@
 
-package gui;
+package frames;
 
 import javax.swing.*;
 import java.awt.GridLayout;

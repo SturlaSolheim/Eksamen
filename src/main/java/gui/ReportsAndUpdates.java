@@ -4,6 +4,7 @@ package gui;
 	import javax.swing.JPanel;
 
 import frames.AddOrModifyEmployeeFrame;
+import frames.ListAllProducts;
 import frames.ListOfficesFrame;
 
 import java.awt.Font;
