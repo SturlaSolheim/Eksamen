@@ -144,6 +144,10 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 			AddEmployeeFrame frame = new AddEmployeeFrame();
 		}
 		
+		else if (arg.equals("Bulk import of orders")) {
+			OrderImportGUI order = new OrderImportGUI();
+		}
+		
 
 		
 		
