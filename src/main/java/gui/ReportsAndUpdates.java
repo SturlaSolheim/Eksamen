@@ -26,10 +26,19 @@ import java.awt.Font;
 	        setLayout(new GridBagLayout());
                 
 	        JButton addModifyEmployeeButton = new JButton("Add Employee");
+	        addModifyEmployeeButton.setToolTipText("Click to add a new employee");
+
 	        JButton modifyEmployeeButton = new JButton("Modify Employee");
+	        modifyEmployeeButton.setToolTipText("Click to modify an existing employee");
+
 	        JButton listAllProductsButton = new JButton("List All Products");
+	        listAllProductsButton.setToolTipText("Click to list all products");
+
 	        JButton listAllOfficesButton = new JButton("List All Offices");
+	        listAllOfficesButton.setToolTipText("Click to list all offices");
+
 	        JButton bulkImportOrdersButton = new JButton("Bulk Import of Orders");
+	        bulkImportOrdersButton.setToolTipText("Click to perform a bulk import of orders");
 
 	        
 	        JLabel selectCommandLabel = new JLabel("Select command:");

@@ -29,6 +29,7 @@ public class FileAccessSettings extends JPanel implements ActionListener {
 
         // Initialize and setup the button
         openButton = new JButton("Change folder");
+        openButton.setToolTipText("Click to change the folder");
         openButton.addActionListener(this); // Set this class as the action listener for the button
 
         // Initialize the label

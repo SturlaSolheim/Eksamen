@@ -26,10 +26,20 @@ public class listOfCustomers extends JPanel {
         setLayout(new GridBagLayout());
 
         selectionLabel = new JLabel("Select: ");
+        selectionLabel.setToolTipText("Choose an option");
+
         cityRadioButton = new JRadioButton("City");
+        cityRadioButton.setToolTipText("Select by city");
+
         stateRadioButton = new JRadioButton("State");
+        stateRadioButton.setToolTipText("Select by state");
+
         selectionComboBox = new JComboBox<>();
+        selectionComboBox.setToolTipText("Select an item from the list");
+
         writeListButton = new JButton("Write customer list");
+        writeListButton.setToolTipText("Click to write the customer list");
+
 
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(cityRadioButton);
