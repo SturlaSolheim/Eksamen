@@ -132,6 +132,9 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
 			db.open();
 			db.insertEmployee(Integer.parseInt(employeeNumberField.getText()), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,Integer.parseInt(officeCodeField.getText()), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
 			db.close();
+			
+			setVisible(false); 
+			dispose(); 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
