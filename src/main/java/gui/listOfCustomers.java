@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class listOfCustomers extends JFrame {
+public class listOfCustomers extends JPanel {
 
     private JLabel selectionLabel;
     private JRadioButton cityRadioButton;
@@ -18,10 +18,8 @@ public class listOfCustomers extends JFrame {
     private JComboBox<String> selectionComboBox;
 
     public listOfCustomers() {
-        setTitle("City/State Selection");
-        setSize(400, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); 
+       super();
+       setLayout(new GridBagLayout());
 
         selectionLabel = new JLabel("Select: ");
         cityRadioButton = new JRadioButton("City");
@@ -111,19 +109,4 @@ public class listOfCustomers extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                new listOfCustomers();
-            }
-        });
-    }
 }
-

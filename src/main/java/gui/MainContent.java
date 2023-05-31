@@ -35,17 +35,16 @@ public class MainContent extends JPanel {
         // Create an instance of FileAccessSettings
         FileAccessSettings fileAccessSettings = new FileAccessSettings();
         fileAccessSettings.setBorder(BorderFactory.createTitledBorder("File Access Settings")); // Add a titled border
-          
+
         // Specify the constraints for the FileAccessSettings
         c.fill = GridBagConstraints.BOTH; // This component should fill its display area
         c.weightx = 0.8; // Specify the relative width of the FileAccessSettings
         c.weighty = 0.5; // Request any extra vertical space
         c.gridx = 1; // Place FileAccessSettings in the second column
- 
-        
+
         
         ReportsAndUpdates reportsAndUpdates = new ReportsAndUpdates ();
-        reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("Reports and updates")); // Add a titled border 
+        reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("Reports and updates")); // Add a titled border
         
        
 
@@ -56,9 +55,22 @@ public class MainContent extends JPanel {
         c.weighty = 0; // Request any extra vertical space
         c.gridx = 2; // Place FileAccessSettings in the second column
         
+        // create instance of lifOfCustomers
+        listOfCustomers listOfCustomers = new listOfCustomers();
+        reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("List of cutsomers"));
+        
+        c.fill = GridBagConstraints.BOTH; 
+        c.weightx = 0.8; 
+        c.weighty = 0; 
+        c.gridx = 3; 
+        
         
         // Add the FileAccessSettings to the panel with the constraints
         this.add(fileAccessSettings, c);
+        this.add(listOfCustomers, c);
         this.add(reportsAndUpdates, c);
+        
+
+        
     }
 }
