@@ -13,6 +13,10 @@ import java.util.List;
 import javax.swing.*;
 import database.DatabaseHelper;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+
 public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
