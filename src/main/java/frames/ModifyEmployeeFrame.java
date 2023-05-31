@@ -5,6 +5,7 @@ package frames;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         
         List<Integer> employeeNumberList = getEmployeeNumberFromDatabase();
         updateEmployeeNumberComboBox(employeeNumberList);
+        
 
         lastNameLabel = new JLabel("Last Name");
         c.gridx = 0;
