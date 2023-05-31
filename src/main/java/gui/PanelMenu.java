@@ -39,13 +39,13 @@ public class PanelMenu extends JPanel implements ActionListener {
         // Initialize the buttons
         button1 = createButton("Test database connection");
         button2 = createButton("Execute SQL query");
-        button3 = createButton("Exit application");
-        button4 = createButton("About the app");
+        button3 = createButton("About the app");
+        button4 = createButton("Exit application");
         
         button1.setToolTipText("Click to test database connection");
         button2.setToolTipText("Click to execute an SQL query");
+        button3.setToolTipText("Click for information about the app");
         button3.setToolTipText("Click to exit the application");
-        button4.setToolTipText("Click for information about the app");
 
         
         // Make this class the action listener for the buttons
@@ -90,7 +90,7 @@ public class PanelMenu extends JPanel implements ActionListener {
     	    	    new TestDatabaseFrame();
     	    	}
    	        
-    	        if (e.getSource() == button3) {
+    	        if (e.getSource() == button4) {
     	            System.out.println("Exit button clicked");
     	            System.exit(0);
     	     
@@ -102,7 +102,7 @@ public class PanelMenu extends JPanel implements ActionListener {
     	            executeSql.setVisible(true);
     	        }
     	        
-    	        if (e.getSource() == button4) {
+    	        if (e.getSource() == button3) {
     	            
     	            AboutThisApp aboutThisApp = new AboutThisApp();
     	            aboutThisApp.showMessage();
