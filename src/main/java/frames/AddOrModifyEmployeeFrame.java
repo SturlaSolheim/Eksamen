@@ -122,6 +122,7 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == submitButton) {
             printFieldValues();
+            submitToDatabase();
         }
     }
     
