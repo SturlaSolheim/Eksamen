@@ -7,6 +7,8 @@ package gui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -15,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
 import database.DatabaseHelper;
+import frames.ListAllProducts;
 
 
 public class ApplicationMenu extends JMenuBar implements ActionListener {
@@ -140,6 +143,14 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 			helptext.setOpaque(false);
 			helptext.setFont(bigFont);
 			JOptionPane.showMessageDialog(this, helptext, "About the application", JOptionPane.INFORMATION_MESSAGE);
+		}
+		else if (arg.equals("List all products")) {
+			try {
+				ListAllProducts frame = new ListAllProducts();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
