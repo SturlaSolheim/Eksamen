@@ -73,10 +73,8 @@ import java.awt.Font;
 	    @Override
 	    public void actionPerformed(ActionEvent e) {
 	        if (e.getActionCommand().equals("Add Employee")) {
-	            System.out.println("Add or Modify Employee button clicked");
 	           AddEmployeeFrame frame = new AddEmployeeFrame();
 	        } else if (e.getActionCommand().equals("List All Products")) {
-	            System.out.println("List All Products button clicked");
                    try {
 			ListAllProducts frame = new ListAllProducts();
                     } catch (SQLException e1) {
@@ -92,7 +90,6 @@ import java.awt.Font;
 				}
 	            // Perform action for list all offices button
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
-	            System.out.println("Bulk Import of Orders button clicked");
 	        }
 	        else if (e.getActionCommand().equals("Modify Employee")) {
 	            ModifyEmployeeFrame frame = new ModifyEmployeeFrame();

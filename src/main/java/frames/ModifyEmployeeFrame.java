@@ -62,17 +62,13 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 							officeCodeComboBox.setSelectedItem(resultSet.getInt("officeCode"));
 							reportsToField.setText(resultSet.getString("reportsTo"));
 							jobTitleField.setText(resultSet.getString("jobTitle"));
-							emailField.setText(resultSet.getString("email"));
-							
-							
+							emailField.setText(resultSet.getString("email"));												
 						}
 						
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-                	
-                	
                 }
             }
         });
