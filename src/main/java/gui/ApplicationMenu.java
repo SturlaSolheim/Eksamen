@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
 import database.DatabaseHelper;
+import frames.AboutThisApp;
 import frames.AddOrModifyEmployeeFrame;
 import frames.ListAllProducts;
 import frames.TestDatabaseFrame;
@@ -128,11 +129,8 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		}else if (arg.equals("Exit")) {
 			System.exit(0);		
 		}else if (arg.equals("About")) {
-			JTextArea helptext = new JTextArea("This is the small application example\n\n- It provides the display of basic functionality\n- You are allowed to use its structure\n- You can upgrade it for a higher grade");
-			helptext.setEditable(false);
-			helptext.setOpaque(false);
-			helptext.setFont(bigFont);
-			JOptionPane.showMessageDialog(this, helptext, "About the application", JOptionPane.INFORMATION_MESSAGE);
+			AboutThisApp frame = new AboutThisApp();
+            frame.showMessage();
 		}
 		else if (arg.equals("List all products")) {
 			try {
@@ -145,6 +143,10 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		else if (arg.equals("Add or modify employee")) {
 			AddOrModifyEmployeeFrame frame = new AddOrModifyEmployeeFrame();
 		}
+		
+
+		
+		
 	}
 
 	// simple method that display option pane with the provided message
