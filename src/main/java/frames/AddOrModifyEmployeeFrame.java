@@ -118,8 +118,11 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
     	DatabaseHelper db = new DatabaseHelper();
     	try {
 			db.open();
-			db.insertEmployee(Integer.parseInt(employeeNumberField.getText()), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,Integer.parseInt(officeCodeField.getText()), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
+			db.insertEmployee(Integer.parseInt(employeeNumberField.getText()), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
 			db.close();
+			
+            String message = "Connection successful";
+            JOptionPane.showMessageDialog(this, message);
 			
 			setVisible(false); 
 			dispose(); 
@@ -148,8 +151,7 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
 			} catch (SQLException e) {
 			
 				e.printStackTrace();
-			}
-        	
+			}  	
         return offices;
     }
     
