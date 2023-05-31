@@ -25,6 +25,7 @@ import java.awt.Font;
 	        setLayout(new GridBagLayout());
                 
 	        JButton addModifyEmployeeButton = new JButton("Add Employee");
+	        JButton modifyEmployeeButton = new JButton("Modify Employee");
 	        JButton listAllProductsButton = new JButton("List All Products");
 	        JButton listAllOfficesButton = new JButton("List All Offices");
 	        JButton bulkImportOrdersButton = new JButton("Bulk Import of Orders");
