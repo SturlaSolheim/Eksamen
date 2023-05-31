@@ -8,10 +8,8 @@ import java.sql.SQLException;
 import database.DatabaseHelper;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author sahir
- */
+
+
 public class ListAllProducts extends JFrame {
     private DefaultTableModel tableModel;
     private JTable table;
