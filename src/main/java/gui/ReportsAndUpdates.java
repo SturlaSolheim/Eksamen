@@ -3,7 +3,7 @@ package gui;
 	import javax.swing.JLabel;
 	import javax.swing.JPanel;
 
-import frames.AddOrModifyEmployeeFrame;
+import frames.AddEmployeeFrame;
 import frames.ListAllProducts;
 import frames.ListOfficesFrame;
 
@@ -68,7 +68,7 @@ import java.awt.Font;
 	    public void actionPerformed(ActionEvent e) {
 	        if (e.getActionCommand().equals("Add or Modify Employee")) {
 	            System.out.println("Add or Modify Employee button clicked");
-	           AddOrModifyEmployeeFrame frame = new AddOrModifyEmployeeFrame();
+	           AddEmployeeFrame frame = new AddEmployeeFrame();
 	        } else if (e.getActionCommand().equals("List All Products")) {
 	            System.out.println("List All Products button clicked");
                    try {

@@ -88,9 +88,7 @@ public class PanelMenu extends JPanel implements ActionListener {
     	    	if (e.getSource() == button1) {
     	    	    new TestDatabaseFrame();
     	    	}
-
-    	        
-    	        
+   	        
     	        if (e.getSource() == button3) {
     	            System.out.println("Exit button clicked");
     	            System.exit(0);

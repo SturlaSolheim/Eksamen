@@ -13,13 +13,13 @@ import java.util.List;
 import javax.swing.*;
 import database.DatabaseHelper;
 
-public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
+public class AddEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
     JButton submitButton;
     JComboBox<Integer> officeCodeComboBox;
     
-    public AddOrModifyEmployeeFrame() {
+    public AddEmployeeFrame() {
         super("Add or Modify Employee");
         setLayout(new GridBagLayout());
 

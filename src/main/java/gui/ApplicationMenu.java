@@ -20,7 +20,7 @@ import javax.swing.UIManager;
 
 import database.DatabaseHelper;
 import frames.AboutThisApp;
-import frames.AddOrModifyEmployeeFrame;
+import frames.AddEmployeeFrame;
 import frames.ListAllProducts;
 import frames.TestDatabaseFrame;
 
@@ -141,7 +141,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 			}
 		}
 		else if (arg.equals("Add or modify employee")) {
-			AddOrModifyEmployeeFrame frame = new AddOrModifyEmployeeFrame();
+			AddEmployeeFrame frame = new AddEmployeeFrame();
 		}
 		
 
