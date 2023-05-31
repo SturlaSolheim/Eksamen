@@ -11,6 +11,8 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ToolTipManager;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -39,6 +41,11 @@ public class PanelMenu extends JPanel implements ActionListener {
         button2 = createButton("Execute SQL query");
         button3 = createButton("Exit application");
         button4 = createButton("About the app");
+        
+        button1.setToolTipText("Click to test database connection");
+        button2.setToolTipText("Click to execute an SQL query");
+        button3.setToolTipText("Click to exit the application");
+        button4.setToolTipText("Click for information about the app");
 
         // Make this class the action listener for the buttons
         button1.addActionListener(this);
@@ -67,6 +74,9 @@ public class PanelMenu extends JPanel implements ActionListener {
         // Position the fourth button at (0,3)
         c.gridy = 3;
         add(button4, c);
+        
+        ToolTipManager.sharedInstance().setInitialDelay(5);
+        ToolTipManager.sharedInstance().setDismissDelay(10000);
     }
 
     @Override

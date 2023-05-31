@@ -3,6 +3,7 @@
 package frames;
 
 import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -34,6 +35,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         c.insets = new Insets(10,10,10,10);
 
         employeeNumberLabel = new JLabel("Employee Number");
+        employeeNumberLabel.setToolTipText("Select the employee number");
         c.gridx = 0;
         c.gridy = 0;
         add(employeeNumberLabel, c);
@@ -67,6 +69,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         
 
         lastNameLabel = new JLabel("Last Name");
+        lastNameLabel.setToolTipText("Enter the last name");
         c.gridx = 0;
         c.gridy++;
         add(lastNameLabel, c);
@@ -75,6 +78,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         add(lastNameField, c);
 
         firstNameLabel = new JLabel("First Name");
+        firstNameLabel.setToolTipText("Enter the first name");
         c.gridx = 0;
         c.gridy++;
         add(firstNameLabel, c);
@@ -83,6 +87,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         add(firstNameField, c);
 
         extensionLabel = new JLabel("Extension");
+        extensionLabel.setToolTipText("Enter the extension");
         c.gridx = 0;
         c.gridy++;
         add(extensionLabel, c);
@@ -91,6 +96,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         add(extensionField, c);
         
         emailLabel = new JLabel("Email");
+        emailLabel.setToolTipText("Enter the email");
         c.gridx = 0;
         c.gridy++;
         add(emailLabel, c);
@@ -99,6 +105,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         add(emailField, c);
 
         officeCodeLabel = new JLabel("Office Code");
+        officeCodeLabel.setToolTipText("Select the office code");
         c.gridx = 0;
         c.gridy++;
         add(officeCodeLabel, c);
@@ -110,6 +117,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         updateOfficeCodeComboBox(officeCodeList);
 
         reportsToLabel = new JLabel("Reports To");
+        reportsToLabel.setToolTipText("Enter the employee's supervisor");
         c.gridx = 0;
         c.gridy++;
         add(reportsToLabel, c);
@@ -118,6 +126,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         add(reportsToField, c);
 
         jobTitleLabel = new JLabel("Job Title");
+        jobTitleLabel.setToolTipText("Enter the job title");
         c.gridx = 0;
         c.gridy++;
         add(jobTitleLabel, c);
@@ -126,6 +135,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         add(jobTitleField, c);
         
         submitButton = new JButton("Submit");
+        submitButton.setToolTipText("Click to submit the employee details");
         c.gridx = 0;
         c.gridy++;
         c.gridwidth = 2;
