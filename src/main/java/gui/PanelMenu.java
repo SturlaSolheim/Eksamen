@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -32,6 +33,12 @@ public class PanelMenu extends JPanel implements ActionListener {
         button3.addActionListener(this);
         button4.addActionListener(this);
 
+        Font boldFontExit = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
+        button3.setFont(boldFontExit);
+        
+        Font boldFontAbout = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
+        button4.setFont(boldFontAbout);
+        
         // Add the buttons to the panel
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
