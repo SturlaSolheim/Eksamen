@@ -14,6 +14,7 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
     JButton submitButton;
+    JComboBox<String> officeCodeComboBox;
     
     public AddOrModifyEmployeeFrame() {
         super("Add or Modify Employee");
@@ -67,9 +68,9 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
         c.gridx = 0;
         c.gridy++;
         add(officeCodeLabel, c);
-        officeCodeField = new JTextField(20);
+        officeCodeComboBox = new JComboBox<>();
         c.gridx = 1;
-        add(officeCodeField, c);
+        add(officeCodeComboBox, c);
 
         reportsToLabel = new JLabel("Reports To");
         c.gridx = 0;
