@@ -14,6 +14,9 @@ import java.util.List;
 import javax.swing.*;
 import database.DatabaseHelper;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
@@ -40,6 +43,15 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         
         List<Integer> employeeNumberList = getEmployeeNumberFromDatabase();
         updateEmployeeNumberComboBox(employeeNumberList);
+        
+        employeeNumberComboBox.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                	
+                	
+                }
+            }
+        });
         
 
         lastNameLabel = new JLabel("Last Name");
