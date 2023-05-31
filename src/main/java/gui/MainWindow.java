@@ -20,7 +20,7 @@ public class MainWindow extends JFrame {
 
 	public MainWindow() {
 		
-		setTitle("OBJ EXAM 2023 - TEAM 2");
+		setTitle("OBJ2000 EXAM 2023 - TEAM 2");
 		setSize(1000, 500);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout());
