@@ -6,6 +6,7 @@ package gui;
 import frames.AddEmployeeFrame;
 import frames.ListAllProducts;
 import frames.ListOfficesFrame;
+import frames.ModifyEmployeeFrame;
 
 import java.awt.Font;
 	import java.awt.GridBagConstraints;
@@ -92,8 +93,10 @@ import java.awt.Font;
 	            // Perform action for list all offices button
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
 	            System.out.println("Bulk Import of Orders button clicked");
-	            // Perform action for bulk import orders button
-	            
 	        }
+	        else if (e.getActionCommand().equals("Modify Employee")) {
+	            ModifyEmployeeFrame frame = new ModifyEmployeeFrame();
+	        }
+	        
 	    }	    
 }
