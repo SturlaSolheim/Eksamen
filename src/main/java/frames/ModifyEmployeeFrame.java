@@ -53,9 +53,19 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
                 	DatabaseHelper db = new DatabaseHelper();
                 	try {
 						db.open();
-						ResultSet resultSet = db.selectSql("SELECT * from customers where employeeNumer = " + (int)employeeNumberComboBox.getSelectedItem());
+						ResultSet resultSet = db.selectSql("SELECT * from employees where employeeNumber = " + (int)employeeNumberComboBox.getSelectedItem());
 						
-						while (resultSet.next()) {}
+						while (resultSet.next()) {
+							lastNameField.setText(resultSet.getString("lastName"));
+							firstNameField.setText(resultSet.getString("firstName"));
+							extensionField.setText(resultSet.getString("extension"));
+							officeCodeComboBox.setSelectedItem(resultSet.getInt("officeCode"));
+							reportsToField.setText(resultSet.getString("reportsTo"));
+							jobTitleField.setText(resultSet.getString("jobTitle"));
+							emailField.setText(resultSet.getString("email"));
+							
+							
+						}
 						
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
