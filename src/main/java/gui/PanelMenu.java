@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Font;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -16,6 +17,8 @@ import java.sql.Statement;
 
 import database.DatabaseHelper;
 import frames.ListOfficesFrame;
+import frames.TestDatabaseFrame;
+import frames.AboutThisApp;
 
 public class PanelMenu extends JPanel implements ActionListener {
 
@@ -76,46 +79,37 @@ public class PanelMenu extends JPanel implements ActionListener {
         this.add(button4, c);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // Handle button clicks here
-        // For example:
-        if (e.getSource() == button1) {
-            try {
-                // Test database connection
-                DatabaseHelper db = new DatabaseHelper();
-                db.open();
-                db.test();
-                db.close();
-                String message = "Connection successful";
-                JOptionPane.showMessageDialog(this, message);
-            } catch (Exception e2) {
-                String message = "Connection not successful";
-                JOptionPane.showMessageDialog(this, message);
-            }
-            
-            
-        } else if (e.getSource() == button2) {
-            // Execute SQL query
-            String query = JOptionPane.showInputDialog(this, "Enter SQL query:");
-            if (query != null && !query.trim().isEmpty()) {
-                
-            }
-            
-            
-        } else if (e.getSource() == button3) {
-            System.out.println("Exit button clicked");
-            System.exit(0);
-        }
-    }
 
+    	 @Override
+    	    public void actionPerformed(ActionEvent e) {
+    	        // Handle button clicks here
+    	        // For example:
+    	    	
+    	    	if (e.getSource() == button1) {
+    	    	    new TestDatabaseFrame();
+    	    	}
+
+    	        
+    	        
+    	        if (e.getSource() == button3) {
+    	            System.out.println("Exit button clicked");
+    	            System.exit(0);
+    	     
+    	        }
+    	        
+    	        if (e.getSource() == button4) {
+    	            
+    	            AboutThisApp aboutThisApp = new AboutThisApp();
+    	            aboutThisApp.showMessage();
+    	        }
+    	    }
+    	}
     
     
     
     
     
-    
-}
+
 
 
 
