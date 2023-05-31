@@ -99,7 +99,7 @@ public class PanelMenu extends JPanel implements ActionListener {
             // Execute SQL query
             String query = JOptionPane.showInputDialog(this, "Enter SQL query:");
             if (query != null && !query.trim().isEmpty()) {
-                executeQuery(query);
+                
             }
             
             
@@ -109,29 +109,11 @@ public class PanelMenu extends JPanel implements ActionListener {
         }
     }
 
-    private void executeQuery(String query) {
-        String url = "jdbc:mysql://localhost:3306/classicmodels";
-        String username = "student";
-        String password = "student";
-        
-        try {
-            Connection connection = DriverManager.getConnection(url, username, password);
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                // Process and display the result set as needed
-            }
-
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error executing query: " + ex.getMessage());
-        }
-    }
-
+    
+    
+    
+    
+    
     
 }
 
