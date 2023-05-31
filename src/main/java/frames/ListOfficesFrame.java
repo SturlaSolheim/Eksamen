@@ -1,7 +1,6 @@
 //This class was written by Sturla. It lists all the offices in the offices table.
 
 package frames;
-
 import java.awt.GridLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,19 +24,12 @@ public class ListOfficesFrame extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new GridLayout());
 
-        // Define the column names for your table
         String[] columnNames = {"officeCode",  "phone", "city", "adressLine1", "adressLine2", "state", "country", "postalCode", "territory"};
+        tableModel = new DefaultTableModel(columnNames, 0);
 
-        // Initialize the table model
-        tableModel = new DefaultTableModel(columnNames, 0); // The '0' argument means the table starts off with zero rows
-
-        // Initialize the table
         table = new JTable(tableModel);
 
-        // Create a JScrollPane and add the table to it
         JScrollPane scrollPane = new JScrollPane(table);
-
-        // Add the JScrollPane to the JFrame
         this.add(scrollPane);
         
         DatabaseHelper db = new DatabaseHelper();
@@ -45,7 +37,6 @@ public class ListOfficesFrame extends JFrame {
         ResultSet resultat = db.selectSql("SELECT * FROM offices");
         
         while (resultat.next()) {
-        	
         	int officeCode = resultat.getInt("officeCode");
         	String city = resultat.getString("city");
         	String phone = resultat.getString("phone");

@@ -3,12 +3,15 @@
 package frames;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
-public class AddOrModifyEmployeeFrame extends JFrame {
+public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel;
-
+    JButton submitButton;
     public AddOrModifyEmployeeFrame() {
         super("Add or Modify Employee");
         setLayout(new GridBagLayout());
@@ -72,10 +75,45 @@ public class AddOrModifyEmployeeFrame extends JFrame {
         jobTitleField = new JTextField(20);
         c.gridx = 1;
         add(jobTitleField, c);
+        
+        submitButton = new JButton("Submit");
+        c.gridx = 0;
+        c.gridy++;
+        c.gridwidth = 2;
+        add(submitButton, c);
+        submitButton.addActionListener(this);
 
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
     }
+    
+    
+    public void printFieldValues() {
+        String employeeNumber = employeeNumberField.getText();
+        String lastName = lastNameField.getText();
+        String firstName = firstNameField.getText();
+        String extension = extensionField.getText();
+        String officeCode = officeCodeField.getText();
+        String reportsTo = reportsToField.getText();
+        String jobTitle = jobTitleField.getText();
+
+        System.out.println("Employee Number: " + employeeNumber);
+        System.out.println("Last Name: " + lastName);
+        System.out.println("First Name: " + firstName);
+        System.out.println("Extension: " + extension);
+        System.out.println("Office Code: " + officeCode);
+        System.out.println("Reports To: " + reportsTo);
+        System.out.println("Job Title: " + jobTitle);
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == submitButton) {
+            printFieldValues();
+        }
+    }
+    
+
 
 }
