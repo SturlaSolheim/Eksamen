@@ -100,28 +100,9 @@ public class AddOrModifyEmployeeFrame extends JFrame implements ActionListener {
     }
     
     
-    public void printFieldValues() {
-        String employeeNumber = employeeNumberField.getText();
-        String lastName = lastNameField.getText();
-        String firstName = firstNameField.getText();
-        String extension = extensionField.getText();
-        String officeCode = officeCodeField.getText();
-        String reportsTo = reportsToField.getText();
-        String jobTitle = jobTitleField.getText();
-
-        System.out.println("Employee Number: " + employeeNumber);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("First Name: " + firstName);
-        System.out.println("Extension: " + extension);
-        System.out.println("Office Code: " + officeCode);
-        System.out.println("Reports To: " + reportsTo);
-        System.out.println("Job Title: " + jobTitle);
-    }
-    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == submitButton) {
-            printFieldValues();
             submitToDatabase();
         }
     }
