@@ -1,9 +1,11 @@
 package gui;
 
 import java.awt.Font;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
@@ -12,12 +14,13 @@ import java.sql.SQLException;
 
 import database.DatabaseHelper;
 import frames.ListOfficesFrame;
+import frames.TestDatabaseFrame;
 
 public class PanelMenu extends JPanel implements ActionListener {
 
     private JButton button1, button2, button3, button4;
 
-    public PanelMenu() {
+public PanelMenu() {
         super();
         setLayout(new GridBagLayout());
 
@@ -38,8 +41,8 @@ public class PanelMenu extends JPanel implements ActionListener {
         
         Font boldFontAbout = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
         button4.setFont(boldFontAbout);
-        
-        // Add the buttons to the panel
+
+// Add the buttons to the panel
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
 
@@ -54,9 +57,9 @@ public class PanelMenu extends JPanel implements ActionListener {
         this.add(button2, c);
 
         // Position the third button at (0,2)
-        c.weighty = 0;
+        c.weighty = 0.25;
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 3;
         this.add(button3, c);
 
         // Add an invisible component that takes up all the extra space
@@ -65,7 +68,7 @@ public class PanelMenu extends JPanel implements ActionListener {
         c.gridy = 1;
         this.add(new JPanel(), c); // Adding a new empty JPanel
 
-        // Position the fourth button at (0,4) - at the bottom of the panel
+   // Position the fourth button at (0,4) - at the bottom of the panel
         c.weighty = 0; // Reset to default
         c.gridx = 0;
         c.gridy = 2;
@@ -76,19 +79,11 @@ public class PanelMenu extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Handle button clicks here
         // For example:
-        if (e.getSource() == button1) {
-			try {
-				DatabaseHelper db = new DatabaseHelper();
-				db.open();
-				db.test();
-				db.close();
-				String message = "Connection succesful";
-				JOptionPane.showMessageDialog(this, message);
-			} catch (Exception e2) {
-				String message = "Connection not succesful";
-				JOptionPane.showMessageDialog(this, message);
-			}	
-        }
+    	
+    	if (e.getSource() == button1) {
+    	    new TestDatabaseFrame();
+    	}
+
         
         
         if (e.getSource() == button3) {
