@@ -9,6 +9,7 @@ import java.awt.event.ItemListener;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import database.DatabaseHelper;
 
 public class listOfCustomers extends JPanel {
 
@@ -70,19 +71,46 @@ public class listOfCustomers extends JPanel {
         setVisible(true);
     }
 
+//    private List<String> getCitiesFromDatabase() {
+//        List<String> cities = new ArrayList<>();
+//
+//        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "student", "student")) {
+//            Statement statement = connection.createStatement();
+//            ResultSet resultSet = statement.executeQuery("SELECT DISTINCT city FROM customers");
+//            while (resultSet.next()) {
+//                String city = resultSet.getString("city");
+//                cities.add(city);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return cities;
+//    }
+    
+    
+    
     private List<String> getCitiesFromDatabase() {
         List<String> cities = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels", "student", "student")) {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT DISTINCT city FROM customers");
-            while (resultSet.next()) {
-                String city = resultSet.getString("city");
-                cities.add(city);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        	DatabaseHelper db = new DatabaseHelper();
+        	
+
+        	ResultSet resultSet;
+			try {
+	        	db.open();
+				resultSet = db.selectSql("SELECT DISTINCT city FROM customers");
+				
+	            while (resultSet.next()) {
+	                String city = resultSet.getString("city");
+	                cities.add(city);
+	            }
+	            
+	            return cities;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
         return cities;
     }
 

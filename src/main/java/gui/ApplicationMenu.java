@@ -1,3 +1,5 @@
+//Written by Sturla, based on example from example app
+
 package gui;
 
 /*
@@ -47,14 +49,6 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		displayMenuBar();
 	}
 	
-	/**
-     * Display of the menu bar:
-     * 		Menu
-     *			Test database connection
-     * 			Exit
-     *`		Help
-     *			About the application
-     */
 	
 	protected void displayMenuBar() {
 		UIManager.put("Menu.font", bigFont);
