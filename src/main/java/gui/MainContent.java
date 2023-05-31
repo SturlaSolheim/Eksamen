@@ -35,13 +35,14 @@ public class MainContent extends JPanel {
         // Create an instance of FileAccessSettings
         FileAccessSettings fileAccessSettings = new FileAccessSettings();
         fileAccessSettings.setBorder(BorderFactory.createTitledBorder("File Access Settings")); // Add a titled border
-
+          
         // Specify the constraints for the FileAccessSettings
         c.fill = GridBagConstraints.BOTH; // This component should fill its display area
         c.weightx = 0.8; // Specify the relative width of the FileAccessSettings
         c.weighty = 0.5; // Request any extra vertical space
         c.gridx = 1; // Place FileAccessSettings in the second column
-
+ 
+        
         
         ReportsAndUpdates reportsAndUpdates = new ReportsAndUpdates ();
         reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("Reports and updates")); // Add a titled border
