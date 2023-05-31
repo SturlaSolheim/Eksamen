@@ -99,6 +99,9 @@ import java.awt.Font;
 				}
 	            // Perform action for list all offices button
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
+	        	
+	        	 OrderImportGUI orderImportFrame = new OrderImportGUI();
+		            // Perform action for bulk import orders button
 	        }
 	        else if (e.getActionCommand().equals("Modify Employee")) {
 	            ModifyEmployeeFrame frame = new ModifyEmployeeFrame();

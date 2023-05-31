@@ -66,6 +66,10 @@ public class DatabaseHelper implements DatabaseInterface {
         }
     }
     
+    public PreparedStatement prepareStatement(String query) throws SQLException {
+        return conn.prepareStatement(query);
+    }
+    
     public ResultSet selectSql(String sql) throws SQLException {
     	try {
 			ResultSet rs = stmt.executeQuery(sql);
