@@ -2,13 +2,17 @@
 
 package gui;
 
+import java.awt.Component;
+
 /*
  * Creates main menu of the application
  * */
 
 import java.awt.Font;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.SQLException;
 
 import javax.swing.JMenu;
@@ -16,13 +20,24 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.JPopupMenu;
+import javax.swing.JFrame;
+import javax.swing.JDialog;
 
 import database.DatabaseHelper;
 import frames.AboutThisApp;
 import frames.AddEmployeeFrame;
+import frames.ExecuteSql;
 import frames.ListAllProducts;
 import frames.TestDatabaseFrame;
+import gui.FileAccessSettings;
+import javax.swing.JFileChooser;
+
+
+
+
 
 
 public class ApplicationMenu extends JMenuBar implements ActionListener {
@@ -116,42 +131,83 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		this.add(menu_file);
 		this.add(menu_database);
 		this.add(menu_help);
-	}
 	
+	
+	selectFileItem.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e) {
+	        JFileChooser fileChooser = new JFileChooser();
+	        int returnValue = fileChooser.showOpenDialog(null);
+	        
+	        if (returnValue == JFileChooser.APPROVE_OPTION) {
+	            File selectedFile = fileChooser.getSelectedFile();
+	            // Handle the selected file here
+	        }
+	    }
+	});}
 	
 	// Actions that are performed upon the clicks on the main menu by the user
 	public void actionPerformed(ActionEvent event) {
-		String arg = event.getActionCommand();
-		if (arg.equals("Test database connection")) {
-			 new TestDatabaseFrame();
-    	
+	    String arg = event.getActionCommand();
 
-		}else if (arg.equals("Exit")) {
-			System.exit(0);		
-		}else if (arg.equals("About")) {
-			AboutThisApp frame = new AboutThisApp();
-            frame.showMessage();
-		}
-		else if (arg.equals("List all products")) {
-			try {
-				ListAllProducts frame = new ListAllProducts();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if (arg.equals("Add employee")) {
-			AddEmployeeFrame frame = new AddEmployeeFrame();
-		}
-		
-		else if (arg.equals("Bulk import of orders")) {
+
+	    if (arg.equals("Test database connection")) {
+	        new TestDatabaseFrame();
+	    } else if (arg.equals("Exit")) {
+	        System.exit(0);
+	    } else if (arg.equals("About")) {
+	        AboutThisApp frame = new AboutThisApp();
+	        frame.showMessage();
+	    } else if (arg.equals("List all products")) {
+	        try {
+	            ListAllProducts frame = new ListAllProducts();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    } else if (arg.equals("Add employee")) {
+	        AddEmployeeFrame frame = new AddEmployeeFrame();
+	        
+	    }
+	    
+	    selectFileItem.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent e) {
+	            JFileChooser fileChooser = new JFileChooser();
+	            int returnValue = fileChooser.showOpenDialog(null);
+	            
+	            if (returnValue == JFileChooser.APPROVE_OPTION) {
+	                File selectedFile = fileChooser.getSelectedFile();
+	                // Handle the selected file here
+	            }
+	        }
+	    });
+	    
+
+		 if (arg.equals("Bulk import of orders")) {
 			OrderImportGUI order = new OrderImportGUI();
 		}
+		 else if (arg.equals("Write customers into file")) {
+		        listOfCustomers gui = new listOfCustomers();
+		        JFrame frame = new JFrame();
+		        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		        frame.getContentPane().add(gui);
+		        frame.pack();
+		        frame.setLocationRelativeTo(null); // Set frame location to center of the screen
+		        frame.setVisible(true);
+
+		    }
+		    
+		  
+		    else if (arg.equals("Execute SQL query")) {
+		        JMenuItem menuItem = (JMenuItem) event.getSource();
+		        JPopupMenu popupMenu = (JPopupMenu) menuItem.getParent();
+		        Component invoker = popupMenu.getInvoker();
+		        JFrame parentFrame = (JFrame) SwingUtilities.getRoot(invoker);
+		        ExecuteSql frame = new ExecuteSql();
+		        frame.setVisible(true);
+		        frame.setLocationRelativeTo(parentFrame);
+		    }
+		}
 		
 
-		
-		
-	}
 
 	// simple method that display option pane with the provided message
 	private void displayMessage(String message) {
