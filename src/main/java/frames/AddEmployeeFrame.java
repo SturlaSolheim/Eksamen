@@ -100,6 +100,15 @@ public class AddEmployeeFrame extends JFrame implements ActionListener {
         c.gridwidth = 2;
         add(submitButton, c);
         submitButton.addActionListener(this);
+        
+        employeeNumberLabel.setToolTipText("Enter the employee number");
+        lastNameLabel.setToolTipText("Enter the last name");
+        firstNameLabel.setToolTipText("Enter the first name");
+        extensionLabel.setToolTipText("Enter the extension");
+        emailLabel.setToolTipText("Enter the email address");
+        officeCodeLabel.setToolTipText("Select the office code");
+        reportsToLabel.setToolTipText("Enter the employee's supervisor");
+        jobTitleLabel.setToolTipText("Enter the job title");
 
         pack();
         setLocationRelativeTo(null);
