@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import database.DatabaseHelper;
-import gui.ListOfficesFrame;
+import frames.ListOfficesFrame;
 
 public class PanelMenu extends JPanel implements ActionListener {
 

@@ -2,7 +2,11 @@ package gui;
 	import javax.swing.JButton;
 	import javax.swing.JLabel;
 	import javax.swing.JPanel;
-	import java.awt.Font;
+
+import frames.AddOrModifyEmployeeFrame;
+import frames.ListOfficesFrame;
+
+import java.awt.Font;
 	import java.awt.GridBagConstraints;
 	import java.awt.GridBagLayout;
 	import java.awt.Insets;
@@ -55,7 +59,7 @@ package gui;
 	    public void actionPerformed(ActionEvent e) {
 	        if (e.getActionCommand().equals("Add or Modify Employee")) {
 	            System.out.println("Add or Modify Employee button clicked");
-	            // Perform action for add/modify employee button
+	           AddOrModifyEmployeeFrame frame = new AddOrModifyEmployeeFrame();
 	        } else if (e.getActionCommand().equals("List All Products")) {
 	            System.out.println("List All Products button clicked");
 //                    try {

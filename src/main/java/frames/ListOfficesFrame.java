@@ -1,4 +1,6 @@
-package gui;
+//This class was written by Sturla. It lists all the offices in the offices table.
+
+package frames;
 
 import java.awt.GridLayout;
 import java.sql.ResultSet;
