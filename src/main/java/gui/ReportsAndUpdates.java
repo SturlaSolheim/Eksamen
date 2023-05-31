@@ -33,11 +33,11 @@ import java.awt.Font;
 	        GridBagConstraints labelConstraints = new GridBagConstraints();
 	        
 	        GridBagConstraints buttonConstraints = new GridBagConstraints();
-	        buttonConstraints.gridx = 0;
-	        buttonConstraints.gridy = 0; // Set the grid y position to 1 (bottom row)
+	        buttonConstraints.gridx = 2;
+	        buttonConstraints.gridy = 2; // Set the grid y position to 1 (bottom row)
 	        buttonConstraints.gridwidth = 1; // Set the grid width to 1
 	        buttonConstraints.fill = GridBagConstraints.HORIZONTAL;
-	        buttonConstraints.weightx = 0; // Set the horizontal weight to expand the buttons
+	        buttonConstraints.weightx = 1; // Set the horizontal weight to expand the buttons
 	        buttonConstraints.insets = new Insets(1, 1, 1, 1); // Add spacing around the buttons
 	        this.add(selectCommandLabel, labelConstraints);
 	        
