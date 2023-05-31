@@ -6,6 +6,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,11 +41,15 @@ public class FileAccessSettings extends JPanel implements ActionListener {
         buttonConstraints.fill = GridBagConstraints.HORIZONTAL;
 
         // GridBagLayout constraints for the label
+        
         GridBagConstraints labelConstraints = new GridBagConstraints();
-        labelConstraints.gridx = 0;
-        labelConstraints.gridy = 1;
+        labelConstraints.gridx = 1;
+        labelConstraints.gridy = 0;
         labelConstraints.fill = GridBagConstraints.HORIZONTAL;
-
+        labelConstraints.anchor = GridBagConstraints.EAST; 
+        labelConstraints.insets = new Insets(0, 5, 5, 5);
+        
+        
         // Add the components to this JPanel
         this.add(openButton, buttonConstraints);
         this.add(chosenFolder, labelConstraints);
