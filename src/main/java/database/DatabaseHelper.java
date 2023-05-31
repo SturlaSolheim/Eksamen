@@ -99,7 +99,31 @@ public class DatabaseHelper implements DatabaseInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
     }
+   
+   public void updateEmployee(int employeeNumber, String lastName, String firstName, String extension, String email, int officeCode, int reportsTo, String jobTitle) throws SQLException {
+	   	try {
+			String query = "update employees set lastName = ?, firstName = ?, extension = ?, email = ?, officeCode = ?, reportsTo = ?, jobTitle = ? where employeeNumber = ?;";
+			 myStmt = conn.prepareStatement(query);
+
+			// 3. Set the parameters
+			myStmt.setString(1, lastName);
+			myStmt.setString(2, firstName);
+			myStmt.setString(3, extension);
+			myStmt.setString(4, email);
+			myStmt.setInt(5, officeCode);
+			myStmt.setInt(6, reportsTo);
+			myStmt.setString(7, jobTitle);
+			myStmt.setInt(8, employeeNumber);
+			
+			myStmt.execute();
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
+   
+   
 	
 }

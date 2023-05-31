@@ -167,18 +167,18 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == modifyButton) {
-            submitToDatabase();
+            modifyToDatabase();
         }
     }
     
-    private void submitToDatabase() {
+    private void modifyToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
     	try {
 			db.open();
-			db.insertEmployee(Integer.parseInt(employeeNumberField.getText()), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
+			db.updateEmployee((int)employeeNumberComboBox.getSelectedItem(), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
 			db.close();
 			
-            String message = "Employee registered";
+            String message = "Employee is updated";
             JOptionPane.showMessageDialog(this, message);
 			
 			setVisible(false); 
@@ -189,6 +189,8 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
     }
+    
+    
     
     private List<Integer> getOfficeCodesFromDatabase() {
         List<Integer> offices = new ArrayList<>();
