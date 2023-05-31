@@ -48,6 +48,18 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                 	
+                	DatabaseHelper db = new DatabaseHelper();
+                	try {
+						db.open();
+						ResultSet resultSet = db.selectSql("SELECT * from customers where employeeNumer = " + (int)employeeNumberComboBox.getSelectedItem());
+						
+						while (resultSet.next()) {}
+						
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+                	
                 	
                 }
             }
