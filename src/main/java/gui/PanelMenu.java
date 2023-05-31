@@ -23,7 +23,7 @@ public class PanelMenu extends JPanel implements ActionListener {
         // Initialize the buttons
         button1 = new JButton("Test database connection");
         button2 = new JButton("Execute SQL query");
-        button3 = new JButton("Button 3");
+        button3 = new JButton("Exit application");
         button4 = new JButton("About the app");
 
         // Make this class the action listener for the buttons
@@ -47,12 +47,13 @@ public class PanelMenu extends JPanel implements ActionListener {
         this.add(button2, c);
 
         // Position the third button at (0,2)
+        c.weighty = 0.5;
         c.gridx = 0;
-        c.gridy = 2;
+        c.gridy = 5;
         this.add(button3, c);
 
         // Add an invisible component that takes up all the extra space
-        c.weighty = 1.0;
+        c.weighty = 8;
         c.gridx = 0;
         c.gridy = 3;
         this.add(new JPanel(), c); // Adding a new empty JPanel
@@ -82,14 +83,10 @@ public class PanelMenu extends JPanel implements ActionListener {
 			}	
         }
         
-        if(e.getSource() == button3) {
-        	try {
-				ListOfficesFrame frame = new ListOfficesFrame();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-        }
-        // And so on for button2, button3, and button4
+        
+        if (e.getSource() == button3) {
+            System.out.println("Exit button clicked");
+            System.exit(0);
+        }  
     }
 }
