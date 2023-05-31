@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -23,7 +24,7 @@ public class PanelMenu extends JPanel implements ActionListener {
         // Initialize the buttons
         button1 = new JButton("Test database connection");
         button2 = new JButton("Execute SQL query");
-        button3 = new JButton("Button 3");
+        button3 = new JButton("Exit application");
         button4 = new JButton("About the app");
 
         // Make this class the action listener for the buttons
@@ -32,6 +33,12 @@ public class PanelMenu extends JPanel implements ActionListener {
         button3.addActionListener(this);
         button4.addActionListener(this);
 
+        Font boldFontExit = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
+        button3.setFont(boldFontExit);
+        
+        Font boldFontAbout = new Font(button3.getFont().getName(), Font.BOLD, button3.getFont().getSize());
+        button4.setFont(boldFontAbout);
+        
         // Add the buttons to the panel
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -47,20 +54,21 @@ public class PanelMenu extends JPanel implements ActionListener {
         this.add(button2, c);
 
         // Position the third button at (0,2)
+        c.weighty = 0.25;
         c.gridx = 0;
-        c.gridy = 2;
+        c.gridy = 3;
         this.add(button3, c);
 
         // Add an invisible component that takes up all the extra space
-        c.weighty = 1.0;
+        c.weighty = 10;
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 1;
         this.add(new JPanel(), c); // Adding a new empty JPanel
 
         // Position the fourth button at (0,4) - at the bottom of the panel
-        c.weighty = 0.0; // Reset to default
+        c.weighty = 0; // Reset to default
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 2;
         this.add(button4, c);
     }
 
@@ -82,14 +90,10 @@ public class PanelMenu extends JPanel implements ActionListener {
 			}	
         }
         
-        if(e.getSource() == button3) {
-        	try {
-				ListOfficesFrame frame = new ListOfficesFrame();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-        }
-        // And so on for button2, button3, and button4
+        
+        if (e.getSource() == button3) {
+            System.out.println("Exit button clicked");
+            System.exit(0);
+        }  
     }
 }
