@@ -92,6 +92,7 @@ import java.awt.Font;
 				}
 	            // Perform action for list all offices button
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
+	        	BulkImport bulk = new BulkImport();
 	            System.out.println("Bulk Import of Orders button clicked");
 	        }
 	        else if (e.getActionCommand().equals("Modify Employee")) {
