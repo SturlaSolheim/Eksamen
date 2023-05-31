@@ -21,7 +21,8 @@ import java.awt.event.ItemListener;
 public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
-    JButton submitButton;
+    JButton modifyButton;
+    JButton deleteButton;
     JComboBox<Integer> officeCodeComboBox;
     JComboBox<Integer> employeeNumberComboBox;
     
@@ -140,13 +141,22 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         c.gridx = 1;
         add(jobTitleField, c);
         
-        submitButton = new JButton("Submit");
-        submitButton.setToolTipText("Click to submit the employee details");
+        modifyButton = new JButton("Modify employee");
+        modifyButton.setToolTipText("Click to update the employee data");
         c.gridx = 0;
         c.gridy++;
         c.gridwidth = 2;
-        add(submitButton, c);
-        submitButton.addActionListener(this);
+        add(modifyButton, c);
+        modifyButton.addActionListener(this);
+        
+        deleteButton = new JButton("Delete employee");
+        deleteButton.setToolTipText("Click to delete the employee data");
+        c.gridx = 0;
+        c.gridy++;
+        c.gridwidth = 2;
+        add(deleteButton, c);
+        deleteButton.addActionListener(this);
+
 
         pack();
         setLocationRelativeTo(null);
@@ -156,7 +166,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == submitButton) {
+        if(e.getSource() == modifyButton) {
             submitToDatabase();
         }
     }
