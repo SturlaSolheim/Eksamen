@@ -57,7 +57,7 @@ public class MainContent extends JPanel {
         
         // create instance of lifOfCustomers
         listOfCustomers listOfCustomers = new listOfCustomers();
-        reportsAndUpdates.setBorder(BorderFactory.createTitledBorder("List of cutsomers"));
+        listOfCustomers.setBorder(BorderFactory.createTitledBorder("List of customers"));
         
         c.fill = GridBagConstraints.BOTH; 
         c.weightx = 0.8; 
