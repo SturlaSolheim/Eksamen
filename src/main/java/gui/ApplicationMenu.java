@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
 import database.DatabaseHelper;
+import frames.AddOrModifyEmployeeFrame;
 import frames.ListAllProducts;
 
 
@@ -151,6 +152,9 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		else if (arg.equals("Add or modify employee")) {
+			AddOrModifyEmployeeFrame frame = new AddOrModifyEmployeeFrame();
 		}
 	}
 
