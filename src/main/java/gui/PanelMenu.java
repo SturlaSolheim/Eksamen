@@ -48,6 +48,12 @@ public class PanelMenu extends JPanel implements ActionListener {
         button4.setToolTipText("Click for information about the app");
 
         
+        // Make this class the action listener for the buttons
+        button1.addActionListener(this);
+        button2.addActionListener(this);
+        button3.addActionListener(this);
+        button4.addActionListener(this);
+        
 
         // Add the buttons to the panel
         GridBagConstraints c = new GridBagConstraints();
