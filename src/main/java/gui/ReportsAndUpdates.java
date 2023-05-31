@@ -15,12 +15,12 @@ import java.awt.Font;
         import java.sql.SQLException;
 
 	public class ReportsAndUpdates extends JPanel implements ActionListener {
+	
 		
-	    String comment = "Select commands";
-		
-	    public ReportsAndUpdates() {	
+	    public ReportsAndUpdates() {
+	    	
 	        super(); 
-	        System.out.println(comment);
+	   
 	        setLayout(new GridBagLayout());
                 
 	        JButton addModifyEmployeeButton = new JButton("Add or Modify Employee");
@@ -28,14 +28,22 @@ import java.awt.Font;
 	        JButton listAllOfficesButton = new JButton("List All Offices");
 	        JButton bulkImportOrdersButton = new JButton("Bulk Import of Orders");
 
+	        
+	        JLabel selectCommandLabel = new JLabel("Select command:");
+	        GridBagConstraints labelConstraints = new GridBagConstraints();
+	        
 	        GridBagConstraints buttonConstraints = new GridBagConstraints();
 	        buttonConstraints.gridx = 0;
 	        buttonConstraints.gridy = 0; // Set the grid y position to 1 (bottom row)
 	        buttonConstraints.gridwidth = 1; // Set the grid width to 1
 	        buttonConstraints.fill = GridBagConstraints.HORIZONTAL;
-	        buttonConstraints.weightx = 1.0; // Set the horizontal weight to expand the buttons
+	        buttonConstraints.weightx = 0; // Set the horizontal weight to expand the buttons
 	        buttonConstraints.insets = new Insets(1, 1, 1, 1); // Add spacing around the buttons
-
+	        this.add(selectCommandLabel, labelConstraints);
+	        
+	        
+	        
+	        
 	        buttonConstraints.gridx = 0;
 	        this.add(addModifyEmployeeButton, buttonConstraints);
 	       
