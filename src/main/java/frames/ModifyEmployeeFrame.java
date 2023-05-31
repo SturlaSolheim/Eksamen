@@ -1,4 +1,4 @@
-//This class is written by Sturla. This is the form to register or modify an employee.
+//This class is written by Sturla. This is the form to  modify an employee.
 
 package frames;
 
