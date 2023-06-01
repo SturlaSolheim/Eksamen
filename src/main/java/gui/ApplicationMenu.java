@@ -30,6 +30,7 @@ import frames.AboutThisApp;
 import frames.AddEmployeeFrame;
 import frames.ExecuteSql;
 import frames.ListAllProducts;
+import frames.ModifyEmployeeFrame;
 import frames.TestDatabaseFrame;
 import gui.FileAccessSettings;
 import javax.swing.JFileChooser;
@@ -102,7 +103,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		executeSqlItem = new JMenuItem("Execute SQL query");
 		executeSqlItem.addActionListener(this);
 		
-		addOrModifyItem = new JMenuItem("Add employee");
+		addOrModifyItem = new JMenuItem("Add or modify employee");
 		addOrModifyItem.addActionListener(this);
 		
 		listAllProductsItem = new JMenuItem("List all products");
@@ -163,8 +164,8 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
-	    } else if (arg.equals("Add employee")) {
-	        AddEmployeeFrame frame = new AddEmployeeFrame();
+	    } else if (arg.equals("Add or modify employee")) {
+	        ModifyEmployeeFrame frame = new ModifyEmployeeFrame();
 	        
 	    }
 	    

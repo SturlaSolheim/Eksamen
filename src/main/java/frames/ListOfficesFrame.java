@@ -1,16 +1,3 @@
-//This class was written by Sturla. It lists all the offices in the offices table.
-/**
- * [Brief description of the class]
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
-
 
 package frames;
 import java.awt.GridLayout;
@@ -28,6 +15,9 @@ import database.DatabaseHelper;
 import entities.Office;
 import javax.swing.table.DefaultTableCellRenderer;
 
+
+/** This class creates a nrw Jframe that lists information about all offices in a table
+ * @author Sturla*/ 
 public class ListOfficesFrame extends JFrame {
 
     private DefaultTableModel tableModel;
@@ -71,7 +61,7 @@ public class ListOfficesFrame extends JFrame {
         setResizable(false);
         setVisible(true);
     
- TableColumnModel columnModel = table.getColumnModel();
+        TableColumnModel columnModel = table.getColumnModel();
         
         
         columnModel.getColumn(0).setHeaderValue("OfficeCode");
