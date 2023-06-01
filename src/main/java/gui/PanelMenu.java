@@ -1,14 +1,4 @@
-/**
- * [Brief description of the class]
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
+
 
 package gui;
 
@@ -39,6 +29,9 @@ import frames.TestDatabaseFrame;
 import frames.AboutThisApp;
 import frames.ExecuteSql;
 
+
+/** This class defines the panel of buttons to the left of the gui
+ * @author Sturla */
 public class PanelMenu extends JPanel implements ActionListener {
 
     private JButton button1, button2, button3, button4;
@@ -93,7 +86,7 @@ public class PanelMenu extends JPanel implements ActionListener {
         ToolTipManager.sharedInstance().setDismissDelay(10000);
     }
 
-    @Override
+    		@Override
     	    public void actionPerformed(ActionEvent e) {
     	        
     	    	
