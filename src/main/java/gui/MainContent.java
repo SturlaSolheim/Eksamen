@@ -1,14 +1,4 @@
-/**
- * [Brief description of the class]
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
+
 
 package gui;
 
@@ -21,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import database.DatabaseHelper;
 
+/** This is the main content in the gui. It is based on the example app, and then worked on and further modified
+ * @author Sturla*/
 public class MainContent extends JPanel {
 
     private Font bigFont = new Font("Calibri", Font.PLAIN, 40);

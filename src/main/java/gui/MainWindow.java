@@ -1,14 +1,4 @@
-/**
- * [Brief description of the class]
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
+
 
 package gui;
 
@@ -24,7 +14,7 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 
 
-
+/** Main window, based on the example app*/
 public class MainWindow extends JFrame {
 	
 	private ApplicationMenu appMenu = new ApplicationMenu();
