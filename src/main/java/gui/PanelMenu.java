@@ -100,6 +100,12 @@ public class PanelMenu extends JPanel implements ActionListener {
     	     
     	        }
     	        
+    	        /** 
+    	        @author Arash
+    	        * ActionListener implementation for button actions.
+ 				* Button2 creates and shows an instance of the ExecuteSql frame.
+ 				* Button3 creates and shows an instance of the AboutThisApp frame.
+    	        */
     	        if (e.getSource() == button2) {
     	        	
     	            ExecuteSql executeSql = new ExecuteSql();
