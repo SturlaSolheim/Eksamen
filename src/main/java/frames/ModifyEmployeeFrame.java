@@ -197,14 +197,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         }
         
         if(e.getSource() == deleteButton) {
-            try {
-        	deleteToDatabase();
-            }
-        	catch (Exception exception) {
-                String message = "Employee not registered";
-                JOptionPane.showMessageDialog(this, message);
-    			exception.printStackTrace();
-    		}
+            deleteToDatabase();
         }
         
         if(e.getSource() == submitButton) {
