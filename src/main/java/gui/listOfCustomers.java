@@ -13,6 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import database.DatabaseHelper;
 
+
+/**
+@author Markus Thoresen
+The purpose of this class is to make a GUI that lets you see, write and save all the customers in a list based on what city or state you choose. 
+*/
 public class listOfCustomers extends JPanel {
 
     private JLabel selectionLabel;
@@ -22,6 +27,11 @@ public class listOfCustomers extends JPanel {
     private JButton writeListButton;
     private static String selectedFolderPath;
 
+    
+    /** this is a constructor method including styling options for the radio buttons and the "writelist" button
+     *  @author Markus Thoresen is the author of the method
+     *  @author Alan Czubak is the author of the styling 
+     *  */
     public listOfCustomers() {
         super();
         setLayout(new GridBagLayout());
@@ -102,6 +112,10 @@ public class listOfCustomers extends JPanel {
         setVisible(true);
     }
 
+   /** This method gives you a combo box list of all the city or states based on your radio button choice, and lets you choose what state or city you want a customer list from
+    *  @author Markus Thoresen
+    *  */
+    
     private List<String> getCitiesFromDatabase() {
         List<String> cities = new ArrayList<>();
 
@@ -145,14 +159,19 @@ public class listOfCustomers extends JPanel {
 
         return states;
     }
-
+/** this method populates the combo box with the latest set of items based on the city or state choice
+ * @author Markus Thoresen
+ * */
     private void updateSelectionComboBox(List<String> items) {
         selectionComboBox.removeAllItems();
         for (String item : items) {
             selectionComboBox.addItem(item);
         }
     }
-
+/**this method writes the customer list after you choose the city or state you want, 
+ * then it saves the customerlist to you chosen file path with (that you choose in FileAccessSettings.gui) 
+ * @author Markus Thoresen
+ * */
     private void writeCustomerList() throws SQLException {
         String selectedItem = (String) selectionComboBox.getSelectedItem();
         System.out.println(selectedItem);
@@ -225,16 +244,19 @@ public class listOfCustomers extends JPanel {
             db.close();
         }
     }
-
+/** see  "public void actionPerformed" in "FileAccessSettings" 
+ * @author Markus Thoresen
+ * */
     public static void setSelectedFolderPath(String folderPath) {
         try {
 			selectedFolderPath = folderPath;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
-
+/** this method displays the gui, its the entry point of this class and displays the main frame
+ * @author Markus Toresen
+ * */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
