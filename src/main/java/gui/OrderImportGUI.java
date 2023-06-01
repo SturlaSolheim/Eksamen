@@ -101,7 +101,7 @@ public class OrderImportGUI extends JFrame {
         db.close();
         String message = "Orders imported successfully";
         JOptionPane.showMessageDialog(this, message);} catch (SQLException e) {
-            String message = "order not imported";
+            String message = "Error: Whoops! There seems to be a problem with your Data. order not imported";
             JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
 		}
