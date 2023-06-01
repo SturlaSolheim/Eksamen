@@ -269,21 +269,57 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     private void deleteToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
     	try {
+    		int beforeDeletion = getNumberOfEmployees();
+    		System.out.print(beforeDeletion);
 			db.open();
 			db.deleteEmployee((int)employeeNumberComboBox.getSelectedItem());
 			db.close();
+			int afterDeletion = getNumberOfEmployees();
+			System.out.print(afterDeletion);
 			
-            String message = "Employee is deleted";
-            JOptionPane.showMessageDialog(this, message);
+			if (beforeDeletion != afterDeletion) {
+	            String message = "Employee is deleted";
+	            JOptionPane.showMessageDialog(this, message);
+				
+				setVisible(false); 
+				dispose(); 
+			}
+			else {
+	            String message = "Employee is not deleted. Foreign key constraint failed";
+	            JOptionPane.showMessageDialog(this, message);
+				
+			}
 			
-			setVisible(false); 
-			dispose(); 
+
 		} 
     	catch (SQLException e) {
             String message = "Employee not deleted";
             JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
 		}
+    }
+    
+    /** This method checks how many employees that are registered in the database. Used for verification */
+    public int getNumberOfEmployees() {
+    	DatabaseHelper db = new DatabaseHelper();
+    	ResultSet resultSet;
+    	int numberOfEmployees = 0;
+    	try {
+			db.open();
+			resultSet = db.selectSql("SELECT COUNT(employeeNumber) as employeeNumber FROM employees;");
+
+			
+			while (resultSet.next()) {
+				numberOfEmployees = resultSet.getInt("employeeNumber");
+		    	return numberOfEmployees;
+			}
+			db.close();
+		} 
+    	catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
+    	return numberOfEmployees;
     }
     
     
