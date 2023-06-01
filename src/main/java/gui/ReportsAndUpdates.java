@@ -37,11 +37,8 @@ import java.awt.Font;
 	   
 	        setLayout(new GridBagLayout());
                 
-	        JButton addModifyEmployeeButton = new JButton("Add Employee");
+	        JButton addModifyEmployeeButton = new JButton("Add or modify Employee");
 	        addModifyEmployeeButton.setToolTipText("Click to add a new employee");
-
-	        JButton modifyEmployeeButton = new JButton("Modify Employee");
-	        modifyEmployeeButton.setToolTipText("Click to modify an existing employee");
 
 	        JButton listAllProductsButton = new JButton("List All Products");
 	        listAllProductsButton.setToolTipText("Click to list all products");
@@ -70,10 +67,7 @@ import java.awt.Font;
 	        
 	        buttonConstraints.gridx = 0;
 	        this.add(addModifyEmployeeButton, buttonConstraints);
-	        
-	        buttonConstraints.gridx = 1;
-	        this.add(modifyEmployeeButton, buttonConstraints);
-	        
+	       
 	        buttonConstraints.gridx = 2;
 	        this.add(listAllProductsButton, buttonConstraints);
 
@@ -84,7 +78,6 @@ import java.awt.Font;
 	        this.add(bulkImportOrdersButton, buttonConstraints);
 
 	        addModifyEmployeeButton.addActionListener(this);
-	        modifyEmployeeButton.addActionListener(this); 
 	        listAllProductsButton.addActionListener(this);
 	        listAllOfficesButton.addActionListener(this);
 	        bulkImportOrdersButton.addActionListener(this);       
