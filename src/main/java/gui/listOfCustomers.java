@@ -20,6 +20,7 @@ public class listOfCustomers extends JPanel {
     private JRadioButton stateRadioButton;
     private JComboBox<String> selectionComboBox;
     private JButton writeListButton;
+    private static String selectedFolderPath;
 
     public listOfCustomers() {
         super();
@@ -40,17 +41,15 @@ public class listOfCustomers extends JPanel {
         writeListButton = new JButton("Write customer list");
         writeListButton.setToolTipText("Click to write the customer list");
 
-
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(cityRadioButton);
         buttonGroup.add(stateRadioButton);
 
         JPanel radioPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS)); // Set vertical orientation
+        radioPanel.setLayout(new BoxLayout(radioPanel, BoxLayout.Y_AXIS));
         radioPanel.add(cityRadioButton);
         radioPanel.add(stateRadioButton);
-        radioPanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // Add padding to the panel
-
+        radioPanel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
         JPanel contentPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -70,7 +69,7 @@ public class listOfCustomers extends JPanel {
 
         add(radioPanel);
         add(contentPanel);
-        
+
         cityRadioButton.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -156,6 +155,7 @@ public class listOfCustomers extends JPanel {
 
     private void writeCustomerList() throws SQLException {
         String selectedItem = (String) selectionComboBox.getSelectedItem();
+        System.out.println(selectedItem);
         if (selectedItem == null) {
             JOptionPane.showMessageDialog(this, "Please select a city or state.");
             return;
@@ -164,19 +164,19 @@ public class listOfCustomers extends JPanel {
         String query;
         String fieldName;
         if (cityRadioButton.isSelected()) {
-            query = "SELECT * FROM customers WHERE city = ?";
+            query = "SELECT * FROM customers WHERE city='" + selectedItem + "'";
             fieldName = "city";
         } else {
-            query = "SELECT * FROM customers WHERE state = ?";
+            query = "SELECT * FROM customers WHERE state ='" + selectedItem + "'";
             fieldName = "state";
         }
 
+        System.out.println(fieldName);
         DatabaseHelper db = new DatabaseHelper();
         try {
-           
+
             db.open();
-            ResultSet resultSet = db.selectSql("SELECT * FROM customers");
-           
+            ResultSet resultSet = db.selectSql(query);
 
             StringBuilder customerList = new StringBuilder();
             while (resultSet.next()) {
@@ -189,8 +189,7 @@ public class listOfCustomers extends JPanel {
                 return;
             }
 
-        
-            String filename = "customer_list.txt";
+            String filename = selectedFolderPath + "/customer_list.txt";
             try (FileWriter writer = new FileWriter(filename)) {
                 writer.write(customerList.toString());
             } catch (IOException e) {
@@ -199,7 +198,6 @@ public class listOfCustomers extends JPanel {
                 return;
             }
 
-         
             JTextArea textArea = new JTextArea(10, 40);
             textArea.setEditable(false);
             JScrollPane scrollPane = new JScrollPane(textArea);
@@ -210,7 +208,6 @@ public class listOfCustomers extends JPanel {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
 
-          
             try {
                 java.nio.file.Path filePath = java.nio.file.Paths.get(filename);
                 java.util.List<String> lines = java.nio.file.Files.readAllLines(filePath);
@@ -227,6 +224,15 @@ public class listOfCustomers extends JPanel {
         } finally {
             db.close();
         }
+    }
+
+    public static void setSelectedFolderPath(String folderPath) {
+        try {
+			selectedFolderPath = folderPath;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     public static void main(String[] args) {

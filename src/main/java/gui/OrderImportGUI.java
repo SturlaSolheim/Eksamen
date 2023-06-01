@@ -1,3 +1,15 @@
+/**
+ * [Brief description of the class]
+ * 
+ * [Detailed description of the class]
+ * 
+ * [Author(s) and their contribution]
+ * 
+ * [Purpose of the class]
+ * 
+ * [Explanation of the included methods]
+ */
+
 package gui;
 import database.DatabaseHelper;
 import java.awt.event.ActionEvent;

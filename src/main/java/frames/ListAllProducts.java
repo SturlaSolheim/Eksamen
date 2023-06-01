@@ -1,3 +1,14 @@
+/**
+ * [Brief description of the class]
+
+ * 
+ * [Detailed description of the class
+ * [Author(s) and their contribution]
+ * 
+ * [Purpose of the class]
+ * 
+ * [Explanation of the included methods]
+ */
 
 package frames;
 
@@ -24,19 +35,19 @@ public class ListAllProducts extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new GridLayout());
         
-        // Define the column names for your table
+       
         String[] columnNames = {"Product Code",  "Product Name", "Product Line", "Product Scale", "Product Vendor", "Product Description", "Quantity In Stock", "Buy Price", "MSRP"};
         
-        // Initialize the table model
-        tableModel = new DefaultTableModel(columnNames, 0); // The '0' argument means the table starts off with zero rows
         
-        // Initialize the table
+        tableModel = new DefaultTableModel(columnNames, 0); 
+        
+        
         table = new JTable(tableModel);
         
-        // Create a JScrollPane and add the table to it
+        
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Add the JScrollPane to the JFrame
+        
         this.add(scrollPane);
         
         DatabaseHelper db = new DatabaseHelper();
@@ -62,7 +73,7 @@ public class ListAllProducts extends JFrame {
         setResizable(true);
         setVisible(true);
  
-        // Set tooltips for table columns
+  
         TableColumnModel columnModel = table.getColumnModel();
         
         columnModel.getColumn(0).setHeaderValue("Product Code");
@@ -77,7 +88,7 @@ public class ListAllProducts extends JFrame {
         
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
         
-        // Set tooltips for each column
+       
         renderer.setToolTipText("Code of the product");
         columnModel.getColumn(0).setCellRenderer(renderer);
         

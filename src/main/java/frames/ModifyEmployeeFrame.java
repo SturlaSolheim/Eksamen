@@ -1,4 +1,3 @@
-//This class is written by Sturla. This is the form to add, modify or delete an employee.
 
 package frames;
 
@@ -8,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,9 @@ import database.DatabaseHelper;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-
+/** 
+ * This is a class that handles update, create and deletion of employees.
+ *  @author Sturla <br>*/
 public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     JTextField employeeNumberField, lastNameField, firstNameField, extensionField, officeCodeField, reportsToField, jobTitleField, emailField;
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
@@ -26,8 +28,9 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     JButton submitButton;
     JComboBox<Integer> officeCodeComboBox;
     JComboBox<Integer> employeeNumberComboBox;
+    JComboBox<Integer> reportsToComboBox;
     
-    
+    /**A constructor that creates the frame */
     public ModifyEmployeeFrame() {
         super("Modify employee");
         setLayout(new GridBagLayout());
@@ -48,6 +51,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         List<Integer> employeeNumberList = getEmployeeNumberFromDatabase();
         updateEmployeeNumberComboBox(employeeNumberList);
         
+        //Item listener that runs each time employeeNumber changes
         employeeNumberComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -62,7 +66,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 							firstNameField.setText(resultSet.getString("firstName"));
 							extensionField.setText(resultSet.getString("extension"));
 							officeCodeComboBox.setSelectedItem(resultSet.getInt("officeCode"));
-							reportsToField.setText(resultSet.getString("reportsTo"));
+							reportsToComboBox.setSelectedItem(resultSet.getInt("reportsTo"));
 							jobTitleField.setText(resultSet.getString("jobTitle"));
 							emailField.setText(resultSet.getString("email"));												
 						}
@@ -124,14 +128,17 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         List<Integer> officeCodeList = getOfficeCodesFromDatabase();
         updateOfficeCodeComboBox(officeCodeList);
 
-        reportsToLabel = new JLabel("Reports To");
-        reportsToLabel.setToolTipText("Enter the employee's supervisor");
+        reportsToLabel = new JLabel("Reports to");
+        reportsToLabel.setToolTipText("test");
         c.gridx = 0;
-        c.gridy++;
+        c.gridy ++;
         add(reportsToLabel, c);
-        reportsToField = new JTextField(20);
+        reportsToComboBox = new JComboBox<>();
         c.gridx = 1;
-        add(reportsToField, c);
+        add(reportsToComboBox, c);
+        
+        List<Integer> reportsToList = getEmployeeNumberFromDatabase();
+        updateReportsToComboBox(reportsToList);
 
         jobTitleLabel = new JLabel("Job Title");
         jobTitleLabel.setToolTipText("Enter the job title");
@@ -188,11 +195,12 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         }
     }
     
+    /** Method that handles insert into the database. Gets information from all the fields in the form */
     private void submitToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
     	try {
 			db.open();
-			db.insertEmployee(getHighestEmployeeNumber() + 1, lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
+			db.insertEmployee(getHighestEmployeeNumber() + 1, lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
 			db.close();
 			
             String message = "Employee registered with the employeeNumber: " + (getHighestEmployeeNumber() + 1);
@@ -200,19 +208,32 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 			
 			setVisible(false); 
 			dispose(); 
-		} catch (SQLException e) {
+		} 
+    	catch (SQLIntegrityConstraintViolationException e) {
+            String message = "Employee not registered, the was an SQL foriegn key constraint fault";
+            JOptionPane.showMessageDialog(this, message);
+			e.printStackTrace();
+		}
+    	catch (SQLException e) {
+            String message = "Employee not registered, the was an SQL exception";
+            JOptionPane.showMessageDialog(this, message);
+			e.printStackTrace();
+		}
+    	
+    	catch (Exception e) {
             String message = "Employee not registered";
             JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
 		}
+    	System.out.print("test");
     }
     
-    
+    /** Method that handles updates into the database. Gets information from all the fields in the form */
     private void modifyToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
     	try {
 			db.open();
-			db.updateEmployee((int)employeeNumberComboBox.getSelectedItem(), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
+			db.updateEmployee((int)employeeNumberComboBox.getSelectedItem(), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
 			db.close();
 			
             String message = "Employee is updated";
@@ -227,6 +248,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 		}
     }
     
+    /** Method that deletes insert into the database. Gets information from all the fields in the form */
     private void deleteToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
     	try {
@@ -239,7 +261,8 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 			
 			setVisible(false); 
 			dispose(); 
-		} catch (SQLException e) {
+		} 
+    	catch (SQLException e) {
             String message = "Employee not deleted";
             JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
@@ -248,7 +271,8 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     
     
     
-    
+    /** This method gets a list of all the office codes that are registered in the database
+     * @return List<Integer> */
     private List<Integer> getOfficeCodesFromDatabase() {
         List<Integer> offices = new ArrayList<>();
 
@@ -272,6 +296,8 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         return offices;
     }
     
+    /** This method gets a list of all the employeeNumbers that are registered in the database
+     * @return List<Integer> */
     private List<Integer> getEmployeeNumberFromDatabase() {
         List<Integer> employees = new ArrayList<>();
 
@@ -297,6 +323,8 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         return employees;
     }
     
+    /** This method returns the highest employee number registered in the database. It is used for inserting new employees
+     * @return int*/
     private int getHighestEmployeeNumber() throws SQLException {
     	DatabaseHelper db = new DatabaseHelper();
     	ResultSet resultSet;
@@ -320,6 +348,8 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     	return highestNumber;
     }
     
+    /** Fills officeCodeComboBox with office codes
+     * @param List of int */
     private void updateOfficeCodeComboBox(List<Integer> items) {
         officeCodeComboBox.removeAllItems();
         for (Integer item : items) {
@@ -327,10 +357,21 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         }
     }
     
+    /** Fills employeeNumberComboBox with office codes
+     * @param List of int */
     private void updateEmployeeNumberComboBox(List<Integer> items) {
         employeeNumberComboBox.removeAllItems();
         for (Integer item : items) {
             employeeNumberComboBox.addItem(item);
+        }
+    }
+    
+    /** Fills updateToComboBox with office codes
+     * @param List of int */
+    private void updateReportsToComboBox(List<Integer> items) {
+        reportsToComboBox.removeAllItems();
+        for (Integer item : items) {
+            reportsToComboBox.addItem(item);
         }
     }
     	

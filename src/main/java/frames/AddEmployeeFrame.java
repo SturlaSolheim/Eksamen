@@ -1,4 +1,16 @@
-//This class is written by Sturla. This is the form to register or modify an employee.
+
+/**
+ * [Brief description of the class]
+ * 
+ * [Detailed description of the class]
+ * 
+ * [Author(s) and their contribution]
+ * 
+ * [Purpose of the class]
+ * 
+ * [Explanation of the included methods]
+ */
+
 
 package frames;
 
