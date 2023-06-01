@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class OrderImportGUI extends JFrame {
     private JButton importButton;
@@ -48,6 +49,7 @@ public class OrderImportGUI extends JFrame {
     
     private void importOrders(File csvFile) throws SQLException, IOException {
         DatabaseHelper db = new DatabaseHelper();
+        try {
         db.open();
         
         String query = "INSERT INTO products (productCode, productName, productLine, productScale, productVendor, productDescription, quantityInStock, buyPrice, MSRP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -85,7 +87,13 @@ public class OrderImportGUI extends JFrame {
         br.close();
         statement.close();
         db.close();
+        String message = "Orders imported successfully";
+        JOptionPane.showMessageDialog(this, message);} catch (SQLException e) {
+            String message = "order not imported";
+            JOptionPane.showMessageDialog(this, message);
+			e.printStackTrace();
+		}
 
-        System.out.println("Orders imported successfully!");
+        
     }
 }
