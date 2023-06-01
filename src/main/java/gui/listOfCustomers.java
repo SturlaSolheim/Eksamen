@@ -211,7 +211,7 @@ public class listOfCustomers extends JPanel {
             try (FileWriter writer = new FileWriter(filename)) {
                 writer.write(customerList.toString());
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "An error occurred while writing the customer list.");
+                JOptionPane.showMessageDialog(this, "An error occurred while writing the customer list, please select folder.");
                 e.printStackTrace();
                 return;
             }
