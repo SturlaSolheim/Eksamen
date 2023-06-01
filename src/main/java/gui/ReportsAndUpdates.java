@@ -15,7 +15,6 @@ package gui;
 	import javax.swing.JLabel;
 	import javax.swing.JPanel;
 
-import frames.AddEmployeeFrame;
 import frames.ListAllProducts;
 import frames.ListOfficesFrame;
 import frames.ModifyEmployeeFrame;
@@ -86,9 +85,7 @@ import java.awt.Font;
 	    
 	    @Override
 	    public void actionPerformed(ActionEvent e) {
-	        if (e.getActionCommand().equals("Add Employee")) {
-	           AddEmployeeFrame frame = new AddEmployeeFrame();
-	        } else if (e.getActionCommand().equals("List All Products")) {
+	    	if (e.getActionCommand().equals("List All Products")) {
                    try {
 			ListAllProducts products = new ListAllProducts();
                     } catch (SQLException e1) {

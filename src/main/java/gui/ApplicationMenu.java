@@ -27,7 +27,6 @@ import javax.swing.JDialog;
 
 import database.DatabaseHelper;
 import frames.AboutThisApp;
-import frames.AddEmployeeFrame;
 import frames.ExecuteSql;
 import frames.ListAllProducts;
 import frames.ModifyEmployeeFrame;
