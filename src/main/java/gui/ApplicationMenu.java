@@ -68,8 +68,14 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	}
 	
 	
+	
+	
+	
 	protected void displayMenuBar() {
 		UIManager.put("Menu.font", bigFont);
+		
+		int smallFontSize = 15;
+	    Font smallFont = new Font("Calibri", Font.PLAIN, smallFontSize);
 		UIManager.put("MenuItem.font", smallFont);
 		
 		//Defines file menu
@@ -88,13 +94,18 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		exitItem = new JMenuItem("Exit");
 		exitItem.addActionListener(this);
 
-		//Adds items to file menu
+		
+	
+		
+		
+		
+		//Adds the items to the file menu
 		menu_file.add(selectFileItem);
 		menu_file.add(writeCustomersItem);
 		menu_file.add(bulkImportItem);
 		menu_file.add(exitItem);
 		
-		//Define Database menu
+		//Define the "Database" menu
 		menu_database = new JMenu("Database");
 		
 		testDatabaseItem = new JMenuItem("Test database connection");
@@ -114,14 +125,14 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		
 		
 		
-		//Add items to database menu
+		//Items added to the "Database" menu
 		menu_database.add(testDatabaseItem);
 		menu_database.add(executeSqlItem);
 		menu_database.add(addOrModifyItem);
 		menu_database.add(listAllProductsItem);
 		menu_database.add(filterAndPresentItem);
 		
-		//Defines Help menu
+		//Defines the "Help" menu
 		menu_help = new JMenu("Help");
 		
 		option_tip = new JMenuItem("About");
@@ -146,7 +157,10 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	    }
 	});}
 	
-	// Actions that are performed upon the clicks on the main menu by the user
+	
+	
+	
+	// Perform actions
 	public void actionPerformed(ActionEvent event) {
 	    String arg = event.getActionCommand();
 
@@ -176,7 +190,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 	            
 	            if (returnValue == JFileChooser.APPROVE_OPTION) {
 	                File selectedFile = fileChooser.getSelectedFile();
-	                // Handle the selected file here
+	               
 	            }
 	        }
 	    });
@@ -191,7 +205,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		        frame.getContentPane().add(gui);
 		        frame.pack();
-		        frame.setLocationRelativeTo(null); // Set frame location to center of the screen
+		        frame.setLocationRelativeTo(null); 
 		        frame.setVisible(true);
 
 		    }
@@ -210,7 +224,7 @@ public class ApplicationMenu extends JMenuBar implements ActionListener {
 		
 
 
-	// simple method that display option pane with the provided message
+	// Method that displays option pane
 	private void displayMessage(String message) {
 		UIManager.put("OptionPane.messageFont", bigFont);
 		UIManager.put("OptionPane.buttonFont", bigFont);
