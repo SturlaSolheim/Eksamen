@@ -1,4 +1,4 @@
-//This class is written by Sturla. This is the form to  modify or delete an employee.
+//This class is written by Sturla. This is the form to add, modify or delete an employee.
 
 package frames;
 
@@ -23,6 +23,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     JLabel employeeNumberLabel, lastNameLabel, firstNameLabel, extensionLabel, officeCodeLabel, reportsToLabel, jobTitleLabel, emailLabel;
     JButton modifyButton;
     JButton deleteButton;
+    JButton submitButton;
     JComboBox<Integer> officeCodeComboBox;
     JComboBox<Integer> employeeNumberComboBox;
     
@@ -141,6 +142,14 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         c.gridx = 1;
         add(jobTitleField, c);
         
+        submitButton = new JButton("Add a new employee");
+        submitButton.setToolTipText("Click to register this data as a new employee");
+        c.gridx = 0;
+        c.gridy++;
+        c.gridwidth = 2;
+        add(submitButton, c);
+        submitButton.addActionListener(this);
+        
         modifyButton = new JButton("Modify employee");
         modifyButton.setToolTipText("Click to update the employee data");
         c.gridx = 0;
@@ -173,6 +182,29 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         if(e.getSource() == deleteButton) {
             deleteToDatabase();
         }
+        
+        if(e.getSource() == submitButton) {
+            submitToDatabase();
+        }
+    }
+    
+    private void submitToDatabase() {
+    	DatabaseHelper db = new DatabaseHelper();
+    	try {
+			db.open();
+			db.insertEmployee(getHighestEmployeeNumber() + 1, lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), Integer.parseInt(reportsToField.getText()), jobTitleField.getText());
+			db.close();
+			
+            String message = "Employee registered with the employeeNumber: " + (getHighestEmployeeNumber() + 1);
+            JOptionPane.showMessageDialog(this, message);
+			
+			setVisible(false); 
+			dispose(); 
+		} catch (SQLException e) {
+            String message = "Employee not registered";
+            JOptionPane.showMessageDialog(this, message);
+			e.printStackTrace();
+		}
     }
     
     
@@ -255,12 +287,37 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 	                employees.add(tmp);
 	            }
 	            
+	            db.close();
+	            
 	            return employees;
 			} catch (SQLException e) {
 			
 				e.printStackTrace();
 			}  	
         return employees;
+    }
+    
+    private int getHighestEmployeeNumber() throws SQLException {
+    	DatabaseHelper db = new DatabaseHelper();
+    	ResultSet resultSet;
+    	
+		int highestNumber = 0;
+    	
+    	try {
+    		db.open();
+    		resultSet = db.selectSql("SELECT MAX(employeeNumber) as employeeNumber FROM employees;");
+    		
+    		while (resultSet.next()) {
+    			highestNumber = resultSet.getInt("employeeNumber");
+    		}
+    		
+    		db.close();
+    		
+    	} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+    	return highestNumber;
     }
     
     private void updateOfficeCodeComboBox(List<Integer> items) {
