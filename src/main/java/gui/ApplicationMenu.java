@@ -1,4 +1,16 @@
 //Written by Sturla, based on example from example app
+/**
+ * [Brief description of the class]
+ * 
+ * [Detailed description of the class]
+ * 
+ * [Author(s) and their contribution]
+ * 
+ * [Purpose of the class]
+ * 
+ * [Explanation of the included methods]
+ */
+
 
 package gui;
 

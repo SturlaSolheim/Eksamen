@@ -1,4 +1,16 @@
 //This class was written by Sturla. It lists all the offices in the offices table.
+/**
+ * [Brief description of the class]
+ * 
+ * [Detailed description of the class]
+ * 
+ * [Author(s) and their contribution]
+ * 
+ * [Purpose of the class]
+ * 
+ * [Explanation of the included methods]
+ */
+
 
 package frames;
 import java.awt.GridLayout;
