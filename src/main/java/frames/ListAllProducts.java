@@ -21,7 +21,7 @@ public class ListAllProducts extends JFrame {
     private DefaultTableModel tableModel;
     private JTable table;
     
-    /**A constructor the CLASS */
+    /**A constructor of the CLASS */
     public ListAllProducts() throws SQLException {
         setTitle("List of Products");
         setSize(700, 350);
@@ -45,7 +45,7 @@ public class ListAllProducts extends JFrame {
         this.add(scrollPane);
         
         /** Here I instantiate the datasehelper 
-         * construction to select the list of products*/
+         * constructor to select the list of products*/
         
         DatabaseHelper db = new DatabaseHelper();
         db.open();

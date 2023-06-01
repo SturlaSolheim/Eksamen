@@ -11,7 +11,10 @@ import java.sql.Statement;
 
 /**This is a database class that handles the database credentials and communicates with the database
  * It is based on the example app DatabaseHandler, and then modified and worked on
- * @author Sturla */
+ * @author Sturla 
+ * 
+ *  A prestatement function added by @abdiwahab*/
+
 public class DatabaseHelper implements DatabaseInterface {
 	
 	// JDBC driver name and database URL
@@ -71,6 +74,9 @@ public class DatabaseHelper implements DatabaseInterface {
         }
     }
     
+    /** Method that defines preparedStatement query to OrderImportGUI 
+     * JAVA CLASS. method will be called to that class 
+    *  @author Abdiwahab Mohamed <br>*/
     public PreparedStatement prepareStatement(String query) throws SQLException {
         return conn.prepareStatement(query);
     }
