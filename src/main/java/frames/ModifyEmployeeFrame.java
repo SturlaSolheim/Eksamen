@@ -48,6 +48,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
         List<Integer> employeeNumberList = getEmployeeNumberFromDatabase();
         updateEmployeeNumberComboBox(employeeNumberList);
         
+        //Item listener that runs each time employeeNumber changes
         employeeNumberComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -201,10 +202,17 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 			setVisible(false); 
 			dispose(); 
 		} catch (SQLException e) {
+            String message = "Employee not registered, the was an SQL exception";
+            JOptionPane.showMessageDialog(this, message);
+			e.printStackTrace();
+		}
+    	
+    	catch (Exception e) {
             String message = "Employee not registered";
             JOptionPane.showMessageDialog(this, message);
 			e.printStackTrace();
 		}
+    	System.out.print("test");
     }
     
     

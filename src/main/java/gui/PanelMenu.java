@@ -1,3 +1,5 @@
+//Written by Sturla. This is the panel of buttons to the left side in the gui
+
 package gui;
 
 import java.awt.Color;

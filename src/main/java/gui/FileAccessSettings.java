@@ -1,3 +1,5 @@
+//Written by sturla. This class lets you choose file settings
+
 package gui;
 
 import javax.swing.JPanel;
