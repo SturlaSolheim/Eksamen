@@ -33,7 +33,7 @@ public class AboutThisApp extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
 
-        JLabel messageLabel = new JLabel("Hi, you are running DonkeyOS version 6.0.5. This application was made by 6 Students, hope you enjoy");
+        JLabel messageLabel = new JLabel("Hi, this is the application for the OBJ2100 exam. This application was made by 6 Students, hope you enjoy");
         messageLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 
         GridBagConstraints gbc = new GridBagConstraints();
