@@ -46,11 +46,11 @@ import java.awt.Font;
 	        
 	        GridBagConstraints buttonConstraints = new GridBagConstraints();
 	        buttonConstraints.gridx = 2;
-	        buttonConstraints.gridy = 2; // Set the grid y position to 1 (bottom row)
-	        buttonConstraints.gridwidth = 1; // Set the grid width to 1
+	        buttonConstraints.gridy = 2; 
+	        buttonConstraints.gridwidth = 1; 
 	        buttonConstraints.fill = GridBagConstraints.HORIZONTAL;
-	        buttonConstraints.weightx = 1; // Set the horizontal weight to expand the buttons
-	        buttonConstraints.insets = new Insets(1, 1, 1, 1); // Add spacing around the buttons
+	        buttonConstraints.weightx = 1; 
+	        buttonConstraints.insets = new Insets(1, 1, 1, 1); 
 	        this.add(selectCommandLabel, labelConstraints);
 	        
 	        
@@ -78,7 +78,7 @@ import java.awt.Font;
 	        bulkImportOrdersButton.addActionListener(this);       
 	    }
 
-	    // Define the action to perform when a button is clicked
+	    
 	    @Override
 	    public void actionPerformed(ActionEvent e) {
 	        if (e.getActionCommand().equals("Add Employee")) {
@@ -89,19 +89,19 @@ import java.awt.Font;
                     } catch (SQLException e1) {
                         e1.printStackTrace();
                    }
-	            // Perform action for list all products button
+	            
 	        } else if (e.getActionCommand().equals("List All Offices")) {
 	        	try {
 					ListOfficesFrame frame = new ListOfficesFrame();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
+				
 					e1.printStackTrace();
 				}
-	            // Perform action for list all offices button
+	           
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
 	        	
 	        	 OrderImportGUI orderImportFrame = new OrderImportGUI();
-		            // Perform action for bulk import orders button
+		           
 	        }
 	        else if (e.getActionCommand().equals("Modify Employee")) {
 	            ModifyEmployeeFrame frame = new ModifyEmployeeFrame();

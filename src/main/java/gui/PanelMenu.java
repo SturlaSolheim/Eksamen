@@ -36,7 +36,7 @@ public class PanelMenu extends JPanel implements ActionListener {
         setLayout(new GridBagLayout());
         setBackground(new Color(240, 240, 240));
 
-        // Initialize the buttons
+     
         button1 = createButton("Test database connection");
         button2 = createButton("Execute SQL query");
         button3 = createButton("About the app");
@@ -48,32 +48,32 @@ public class PanelMenu extends JPanel implements ActionListener {
         button3.setToolTipText("Click to exit the application");
 
         
-        // Make this class the action listener for the buttons
+        
         button1.addActionListener(this);
         button2.addActionListener(this);
         button3.addActionListener(this);
         button4.addActionListener(this);
         
 
-        // Add the buttons to the panel
+       
         GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.BOTH;  // Center both horizontally and vertically
+        c.fill = GridBagConstraints.BOTH;  
         c.insets = new Insets(1, 3, 3, 3);
 
-        // Position the first button at (0,0)
+        
         c.gridx = 0;
         c.gridy = 0;
         add(button1, c);
 
-        // Position the second button at (0,1)
+       
         c.gridy = 1;
         add(button2, c);
 
-        // Position the third button at (0,2)
+        
         c.gridy = 2;
         add(button3, c);
 
-        // Position the fourth button at (0,3)
+        
         c.gridy = 3;
         add(button4, c);
         
@@ -83,8 +83,7 @@ public class PanelMenu extends JPanel implements ActionListener {
 
     @Override
     	    public void actionPerformed(ActionEvent e) {
-    	        // Handle button clicks here
-    	        // For example:
+    	        
     	    	
     	    	if (e.getSource() == button1) {
     	    	    new TestDatabaseFrame();
