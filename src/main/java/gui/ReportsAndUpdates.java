@@ -97,7 +97,7 @@ import java.awt.Font;
 	           AddEmployeeFrame frame = new AddEmployeeFrame();
 	        } else if (e.getActionCommand().equals("List All Products")) {
                    try {
-			ListAllProducts frame = new ListAllProducts();
+			ListAllProducts products = new ListAllProducts();
                     } catch (SQLException e1) {
                         e1.printStackTrace();
                    }

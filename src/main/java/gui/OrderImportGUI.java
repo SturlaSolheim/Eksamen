@@ -1,14 +1,10 @@
-/**
- * [Brief description of the class]
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
+
+/** 
+ * The CLASS would allow you importing procts
+orders from a csv file to the database..
+ *  @author Abdiwahab Mohamed <br>*/
+
+
 
 package gui;
 import database.DatabaseHelper;
@@ -31,9 +27,18 @@ import javax.swing.JOptionPane;
 public class OrderImportGUI extends JFrame {
     private JButton importButton;
 
+    /**A constructor the CLASS */
     public OrderImportGUI() {
+    	
+        /** Here  instantiates the ImportButton and gives import orders name*/
+    	
         importButton = new JButton("Import Orders");
+        
         importButton.addActionListener(new ActionListener() {
+        	
+        	 /** This method defines JfileChooser that will popUp on 
+        	  * dialogbox approves files that a chosen */
+        	
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
                 int returnValue = fileChooser.showOpenDialog(null);
@@ -59,13 +64,20 @@ public class OrderImportGUI extends JFrame {
     }
     
     
+	 /** This method allow you to import csvfile that contains the list of products */
+    
     private void importOrders(File csvFile) throws SQLException, IOException {
+    	
+    	   /** Here I instantiate the datasehelper 
+         * construction to insert of  all products*/
         DatabaseHelper db = new DatabaseHelper();
         try {
         db.open();
         
         String query = "INSERT INTO products (productCode, productName, productLine, productScale, productVendor, productDescription, quantityInStock, buyPrice, MSRP) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement statement = db.prepareStatement(query);
+        
+        /** The bufferReader reads a csvFile that we want to send to databases*/
         
         BufferedReader br = new BufferedReader(new FileReader(csvFile));
         String line;
