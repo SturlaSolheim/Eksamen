@@ -102,7 +102,7 @@ public class listOfCustomers extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     writeCustomerList();
-                    JOptionPane.showMessageDialog(listOfCustomers.this, "Customer list has been written to file successfully.");
+                   
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
@@ -193,7 +193,6 @@ public class listOfCustomers extends JPanel {
         System.out.println(fieldName);
         DatabaseHelper db = new DatabaseHelper();
         try {
-
             db.open();
             ResultSet resultSet = db.selectSql(query);
 
@@ -216,6 +215,8 @@ public class listOfCustomers extends JPanel {
                 e.printStackTrace();
                 return;
             }
+
+            JOptionPane.showMessageDialog(this, "Customer list has been written to file successfully.");
 
             JTextArea textArea = new JTextArea(10, 40);
             textArea.setEditable(false);
