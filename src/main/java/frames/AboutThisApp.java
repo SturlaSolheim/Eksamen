@@ -1,16 +1,3 @@
-/**
- * [Brief description of the class]
-
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
-
 package frames;
 
 import javax.swing.JButton;
@@ -24,8 +11,19 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Represents a JFrame that displays information about the application.
+ * It includes a message label and a close button.
+ * 
+ * @Author Arash
+ */
 public class AboutThisApp extends JFrame {
-    
+
+    /**
+     * Creates an instance of AboutThisApp.
+     * Sets up the frame with a title, size, and close operation.
+     * Adds a message label and a close button to the panel.
+     */
     public AboutThisApp() {
         setTitle("About the App");
         setSize(1000, 200);
@@ -57,6 +55,9 @@ public class AboutThisApp extends JFrame {
         add(panel);
     }
 
+    /**
+     * Displays the AboutThisApp frame.
+     */
     public void showMessage() {
         setVisible(true);
     }

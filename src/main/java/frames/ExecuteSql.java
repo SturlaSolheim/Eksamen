@@ -8,12 +8,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import database.DatabaseHelper;
 
+/**
+ * Represents a JFrame for executing SQL queries and displaying the result.
+ * The class provides a user interface for entering SQL statements and executing them against a database.
+ *
+ * @author Arash
+ */
 public class ExecuteSql extends JFrame {
 
     private JTextArea sqlTextArea;
     private JButton executeButton;
     private JTextArea resultTextArea;
 
+    /**
+     * Creates a new instance of the ExecuteSql class.
+     * Initializes the UI components and sets up the event listeners.
+     */
     public ExecuteSql() {
         super();
         setTitle("Execute SQL");
@@ -53,6 +63,11 @@ public class ExecuteSql extends JFrame {
         add(panel);
     }
 
+    /**
+     * Executes the SQL query entered by the user and displays the result.
+     * Connects to the database, executes the query, and displays the result in the result text area.
+     * If an error occurs during the execution, an error message dialog is shown.
+     */
     private void executeSqlQuery() {
         String sql = sqlTextArea.getText();
         try {
@@ -67,6 +82,13 @@ public class ExecuteSql extends JFrame {
         }
     }
 
+    /**
+     * Displays the result set in the result text area.
+     * Iterates through the rows of the result set and appends them to the result text area.
+     *
+     * @param resultSet The result set containing the query result.
+     * @throws SQLException If an error occurs while accessing the result set.
+     */
     private void displayResultSet(ResultSet resultSet) throws SQLException {
         StringBuilder sb = new StringBuilder();
         while (resultSet.next()) {
