@@ -108,7 +108,7 @@ import java.awt.Font;
 	        	 OrderImportGUI orderImportFrame = new OrderImportGUI();
 		           
 	        }
-	        else if (e.getActionCommand().equals("Modify Employee")) {
+	        else if (e.getActionCommand().equals("Add or modify Employee")) {
 	            ModifyEmployeeFrame frame = new ModifyEmployeeFrame();
 	        }
 	        
