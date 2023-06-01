@@ -1,13 +1,29 @@
-/**
- * [Brief description of the class]
+		/**
+ * A JFrame that is used to verify the database connection is represented by the TestDatabaseFrame class.
  * 
- * [Detailed description of the class]
+ * It provides a visual interface for testing the functionality of the DatabaseHelper class by
+   establishing a database connection and performing a test also displaying the result to the user.
  * 
- * [Author(s) and their contribution]
+ * Alan made this frame
  * 
- * [Purpose of the class]
+ * The purpose of this class is to provide a visual interface for testing the functionality of the DatabaseHelper class.
+   It allows the user to see whether the database connection is successful or not.
  * 
- * [Explanation of the included methods]
+ * The included methods in this class are:
+   TestDatabaseFrame(): Constructor that initializes the JFrame and tests the database connection.
+   Note: This class relies on the DatabaseHelper class for database-related operations.
+
+package frames;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import database.DatabaseHelper;
+
+public class TestDatabaseFrame extends JFrame 
+
  */
 
 package frames;

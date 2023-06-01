@@ -1,5 +1,6 @@
 /**
  * [Brief description of the class]
+
  * 
  * [Detailed description of the class]
  * 

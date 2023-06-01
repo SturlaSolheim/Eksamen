@@ -1,6 +1,7 @@
 
 /**
  * [Brief description of the class]
+
  * 
  * [Detailed description of the class
  * [Author(s) and their contribution]
