@@ -1,14 +1,6 @@
-/**
- * [Brief description of the class]
-
- * 
- * [Detailed description of the class
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
+/** 
+ * This is a class that lists all products that we have on our database in a table form.
+ *  @author Abdiwahab Mohamed <br>*/
 
 package frames;
 
@@ -29,26 +21,31 @@ public class ListAllProducts extends JFrame {
     private DefaultTableModel tableModel;
     private JTable table;
     
+    /**A constructor the CLASS */
     public ListAllProducts() throws SQLException {
         setTitle("List of Products");
         setSize(700, 350);
         setLocationRelativeTo(null);
         setLayout(new GridLayout());
         
-       
+       /**an array that lists all products*/
+        
         String[] columnNames = {"Product Code",  "Product Name", "Product Line", "Product Scale", "Product Vendor", "Product Description", "Quantity In Stock", "Buy Price", "MSRP"};
         
         
         tableModel = new DefaultTableModel(columnNames, 0); 
         
-        
+        // table that will contain productlist
         table = new JTable(tableModel);
         
-        
+        /** this allows to scroll you up and down the table*/
         JScrollPane scrollPane = new JScrollPane(table);
 
         
         this.add(scrollPane);
+        
+        /** Here I instantiate the datasehelper 
+         * construction to select the list of products*/
         
         DatabaseHelper db = new DatabaseHelper();
         db.open();
@@ -74,6 +71,9 @@ public class ListAllProducts extends JFrame {
         setVisible(true);
  
   
+        /**
+         * here defines the structure that will be shown on table.
+         * */
         TableColumnModel columnModel = table.getColumnModel();
         
         columnModel.getColumn(0).setHeaderValue("Product Code");
