@@ -1,24 +1,11 @@
-//Written by Sturla, based on example from example app
-/**
- * [Brief description of the class]
- * 
- * [Detailed description of the class]
- * 
- * [Author(s) and their contribution]
- * 
- * [Purpose of the class]
- * 
- * [Explanation of the included methods]
- */
+
 
 
 package gui;
 
 import java.awt.Component;
 
-/*
- * Creates main menu of the application
- * */
+
 
 import java.awt.Font;
 
@@ -51,7 +38,8 @@ import javax.swing.JFileChooser;
 
 
 
-
+/**This is the class that defines the Menu bar at the top of the application. It is based on the example app ApplicationMenu class and worked on <br>
+ * @author Sturla */
 public class ApplicationMenu extends JMenuBar implements ActionListener {
 	
 	private JMenu menu_file = null;
