@@ -12,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 import database.DatabaseHelper;
-import entities.Office;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
