@@ -208,7 +208,7 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
 				db.insertEmployee(getHighestEmployeeNumber() + 1, lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
 				db.close();
 				
-	            String message = "Employee registered with the employeeNumber: " + (getHighestEmployeeNumber() + 1);
+	            String message = "Employee registered with the employeeNumber: " + (getHighestEmployeeNumber());
 	            JOptionPane.showMessageDialog(this, message);
 				
 				setVisible(false); 
@@ -236,27 +236,33 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     	else {
             JOptionPane.showMessageDialog(this, errorMsg);
     	}
-    	System.out.print("test");
     }
     
     /** Method that handles updates into the database. Gets information from all the fields in the form */
     private void modifyToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
-    	try {
-			db.open();
-			db.updateEmployee((int)employeeNumberComboBox.getSelectedItem(), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
-			db.close();
-			
-            String message = "Employee is updated";
-            JOptionPane.showMessageDialog(this, message);
-			
-			setVisible(false); 
-			dispose(); 
-		} catch (SQLException e) {
-            String message = "Employee not modified";
-            JOptionPane.showMessageDialog(this, message);
-			e.printStackTrace();
-		}
+    	String errorMsg = verifyInput();
+    	
+    	if (errorMsg.length() == 0) {
+	    	try {
+				db.open();
+				db.updateEmployee((int)employeeNumberComboBox.getSelectedItem(), lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
+				db.close();
+				
+	            String message = "Employee is updated";
+	            JOptionPane.showMessageDialog(this, message);
+				
+				setVisible(false); 
+				dispose(); 
+			} catch (SQLException e) {
+	            String message = "Employee not modified";
+	            JOptionPane.showMessageDialog(this, message);
+				e.printStackTrace();
+			}
+    	}
+    	else {
+            JOptionPane.showMessageDialog(this, errorMsg);
+    	}
     }
     
     /** Method that deletes insert into the database. Gets information from all the fields in the form */
