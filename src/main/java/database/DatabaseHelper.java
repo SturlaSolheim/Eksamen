@@ -13,7 +13,8 @@ import java.sql.Statement;
  * It is based on the example app DatabaseHandler, and then modified and worked on
  * @author Sturla,<br> 
  * 
- *  A prestatement function added by @abdiwahab*/
+ *  A PreparedStatement function added by @abdiwahab,</br>*/
+
 public class DatabaseHelper implements DatabaseInterface {
 	
 	// JDBC driver name and database URL

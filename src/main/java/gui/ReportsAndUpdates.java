@@ -87,6 +87,9 @@ import java.awt.Font;
 	    public void actionPerformed(ActionEvent e) {
 	    	if (e.getActionCommand().equals("List All Products")) {
                    try {
+                	   /** This is an instance of listAllProducto
+       	        	 * */
+                	   
 			ListAllProducts products = new ListAllProducts();
                     } catch (SQLException e1) {
                         e1.printStackTrace();
@@ -101,7 +104,8 @@ import java.awt.Font;
 				}
 	           
 	        } else if (e.getActionCommand().equals("Bulk Import of Orders")) {
-	        	
+	        	/** This is an instance of OrderImportGui
+	        	 * */
 	        	 OrderImportGUI orderImportFrame = new OrderImportGUI();
 		           
 	        }
