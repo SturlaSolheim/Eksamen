@@ -58,7 +58,6 @@ public class OrderImportGUI extends JFrame {
         add(importButton);
         setTitle("Order Import");
         setSize(300, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
     }
