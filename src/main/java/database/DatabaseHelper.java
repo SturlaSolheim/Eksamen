@@ -11,10 +11,9 @@ import java.sql.Statement;
 
 /**This is a database class that handles the database credentials and communicates with the database
  * It is based on the example app DatabaseHandler, and then modified and worked on
- * @author Sturla 
+ * @author Sturla,<br> 
  * 
  *  A prestatement function added by @abdiwahab*/
-
 public class DatabaseHelper implements DatabaseInterface {
 	
 	// JDBC driver name and database URL
