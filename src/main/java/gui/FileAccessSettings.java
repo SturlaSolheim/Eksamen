@@ -59,7 +59,9 @@ public class FileAccessSettings extends JPanel implements ActionListener {
         this.add(chosenFolder, labelConstraints);
     }
 
-
+    /**this method sets the selected folder path in the listOfCustomers class by calling the static method setSelectedFolderPath
+     *  @author Markus Thoresen
+     *  */
     @Override
     public void actionPerformed(ActionEvent e) {
     	if (e.getSource() == openButton) {
