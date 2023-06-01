@@ -71,12 +71,13 @@ public class FileAccessSettings extends JPanel implements ActionListener {
     // Define the action to perform when the button is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == openButton) {
-            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                chosenFolder.setText("Chosen file: " + chooser.getSelectedFile().toString());
-            } else {
-                System.out.println("No Selection ");
-            }
-        }
+    	if (e.getSource() == openButton) {
+    	    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+    	        chosenFolder.setText("Chosen folder: " + chooser.getSelectedFile().toString());
+    	        listOfCustomers.setSelectedFolderPath(chooser.getSelectedFile().toString());
+    	    } else {
+    	        System.out.println("No Selection ");
+    	    }
+    	}
     }
 }
