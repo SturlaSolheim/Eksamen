@@ -31,7 +31,8 @@ import frames.ExecuteSql;
 
 
 /** This class defines the panel of buttons to the left of the gui
- * @author Sturla */
+ * @author Sturla
+ * Alan, tooltips and button appearence */
 public class PanelMenu extends JPanel implements ActionListener {
 
     private JButton button1, button2, button3, button4;

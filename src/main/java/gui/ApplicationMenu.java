@@ -39,7 +39,8 @@ import javax.swing.JFileChooser;
 
 
 /**This is the class that defines the Menu bar at the top of the application. It is based on the example app ApplicationMenu class and worked on <br>
- * @author Sturla */
+ * @author Sturla <br>
+ * Alan wrote the perform actions */
 public class ApplicationMenu extends JMenuBar implements ActionListener {
 	
 	private JMenu menu_file = null;
