@@ -1,4 +1,4 @@
-//Written by sturla, based on the example app
+
 
 package database;
 
@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**This is a database class that handles the database credentials and communicates with the database
+ * It is based on the example app DatabaseHandler, and then modified and worked on
+ * @author Sturla */
 public class DatabaseHelper implements DatabaseInterface {
 	
 	// JDBC driver name and database URL
@@ -83,6 +86,8 @@ public class DatabaseHelper implements DatabaseInterface {
 		return null;
     }
     
+    
+    /** This method takes in a number of parameters, prepares an sql statement and inserts an employee to the database*/
    public void insertEmployee(int employeeNumber, String lastName, String firstName, String extension, String email, int officeCode, int reportsTo, String jobTitle) throws SQLException {
    	try {
 		String query = "insert into employees " + "(employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, jobTitle) " + "values "
@@ -107,6 +112,7 @@ public class DatabaseHelper implements DatabaseInterface {
 		}
     }
    
+   /** This method takes in a number of parameters, prepares an sql statement and updates an employee to the database*/
    public void updateEmployee(int employeeNumber, String lastName, String firstName, String extension, String email, int officeCode, int reportsTo, String jobTitle) throws SQLException {
 	   	try {
 			String query = "update employees set lastName = ?, firstName = ?, extension = ?, email = ?, officeCode = ?, reportsTo = ?, jobTitle = ? where employeeNumber = ?;";
@@ -129,7 +135,7 @@ public class DatabaseHelper implements DatabaseInterface {
 				e.printStackTrace();
 			}
 	    }
-   	
+   /** This method takes in an employee number and deletes that employee in the database*/
    public void deleteEmployee(int employeeNumber) throws SQLException {
 	   	try {
 			String query = "delete from employees where employeeNumber = ?;";
