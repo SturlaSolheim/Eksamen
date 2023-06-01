@@ -1,3 +1,5 @@
+//Written by sturla, based on the example app
+
 package database;
 
 import java.sql.Connection;
