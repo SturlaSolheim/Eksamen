@@ -198,33 +198,44 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
     /** Method that handles insert into the database. Gets information from all the fields in the form */
     private void submitToDatabase() {
     	DatabaseHelper db = new DatabaseHelper();
-    	try {
-			db.open();
-			db.insertEmployee(getHighestEmployeeNumber() + 1, lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
-			db.close();
-			
-            String message = "Employee registered with the employeeNumber: " + (getHighestEmployeeNumber() + 1);
-            JOptionPane.showMessageDialog(this, message);
-			
-			setVisible(false); 
-			dispose(); 
-		} 
-    	catch (SQLIntegrityConstraintViolationException e) {
-            String message = "Employee not registered, the was an SQL foriegn key constraint fault";
-            JOptionPane.showMessageDialog(this, message);
-			e.printStackTrace();
-		}
-    	catch (SQLException e) {
-            String message = "Employee not registered, the was an SQL exception";
-            JOptionPane.showMessageDialog(this, message);
-			e.printStackTrace();
-		}
     	
-    	catch (Exception e) {
-            String message = "Employee not registered";
-            JOptionPane.showMessageDialog(this, message);
-			e.printStackTrace();
-		}
+    	String errorMsg = verifyInput();
+    	
+    	if (errorMsg.length() == 0) {
+    	
+	    	try {
+				db.open();
+				db.insertEmployee(getHighestEmployeeNumber() + 1, lastNameField.getText(), firstNameField.getText(), extensionField.getText(), emailField.getText() ,(int)officeCodeComboBox.getSelectedItem(), (int)reportsToComboBox.getSelectedItem(), jobTitleField.getText());
+				db.close();
+				
+	            String message = "Employee registered with the employeeNumber: " + (getHighestEmployeeNumber() + 1);
+	            JOptionPane.showMessageDialog(this, message);
+				
+				setVisible(false); 
+				dispose(); 
+			} 
+	    	catch (SQLIntegrityConstraintViolationException e) {
+	            String message = "Employee not registered, the was an SQL foriegn key constraint fault";
+	            JOptionPane.showMessageDialog(this, message);
+				e.printStackTrace();
+			}
+	    	catch (SQLException e) {
+	            String message = "Employee not registered, the was an SQL exception";
+	            JOptionPane.showMessageDialog(this, message);
+				e.printStackTrace();
+			}
+	    	
+	    	catch (Exception e) {
+	            String message = "Employee not registered";
+	            JOptionPane.showMessageDialog(this, message);
+				e.printStackTrace();
+			}
+	    	
+    	}
+    	
+    	else {
+            JOptionPane.showMessageDialog(this, errorMsg);
+    	}
     	System.out.print("test");
     }
     
@@ -374,6 +385,41 @@ public class ModifyEmployeeFrame extends JFrame implements ActionListener {
             reportsToComboBox.addItem(item);
         }
     }
+    
+    /** This method verifies all the inputs in the form. 
+     * @return String */
+    public String verifyInput() {
     	
+    	String errorMsgOutput = "";
+    	
+        List<String> errorMsg = new ArrayList<String>();
+    	if(lastNameField.getText().length() < 1 || lastNameField.getText().length() > 50) {
+    		errorMsg.add("Last name is not formatted properly");
+    	}
+    	
+    	if(firstNameField.getText().length() < 1 || firstNameField.getText().length() > 50) {
+    		errorMsg.add("First name is not formatted properly");
+    	}
+    	
+    	if(extensionField.getText().length() < 1 || extensionField.getText().length() > 10) {
+    		errorMsg.add("Extension is not formatted properly");
+    	}
+    	
+    	if(emailField.getText().length() < 1 || emailField.getText().length() > 100) {
+    		errorMsg.add("Email is not formatted properly");
+    	}
+    	
+    	if(jobTitleField.getText().length() < 1 || jobTitleField.getText().length() > 50) {
+    		errorMsg.add("Job title is not formatted properly");
+    	}
+    	
+    	for(String msg : errorMsg) {
+    		errorMsgOutput = errorMsgOutput + msg + "\n";
+    	}
+    	
+    	return errorMsgOutput;	
+    	
+    }
+    
 
 }
